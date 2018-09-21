@@ -1,5 +1,10 @@
 ## About Laravel(Xerintel)
-Empieza configurando tu base de datos y url en el fichero **.env**
+Empieza configurando tu base de datos y url en el fichero **.env**  
+Modo nuevo:
+```
+php artisan xerintel:install
+```
+Antiguo modo:
 ```
 php artisan key:generate
 php artisan voyager:install
