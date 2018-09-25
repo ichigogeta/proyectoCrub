@@ -1,9 +1,24 @@
-
+@charset "UTF-8";
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
-
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+/*-------------------------------------------------- */
+@import "sticky_footer";
+
+#container {
+  padding-bottom: 1.4em;
+}
+
+.alert {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@media all and (min-width: 480px) {
+  br.phone {
+    display: none;
+  }
+}

@@ -27,7 +27,7 @@
                     <ul class="dropdown-menu">
 
                         <li><a href="<?= url('/tools/text2string'); ?>">Text to String</a></li>
-                        <li><a href="<?= route('tools.passwordgenerator'); ?>">Generador de contraseñas</a></li>
+                        <li><a href="<?= url('/tools/easypass'); ?>">Generador de contraseñas</a></li>
 
                         {{--<li><a href="{{url('/tools/citar')}}">Pon algo bonito</a></li>--}}
 
@@ -41,7 +41,7 @@
                         --}}
                     </ul>
                 </li>
-                <li><a href="<?= route('contacto'); ?>">Contacto</a></li>
+                <li><a href="<?= url('/contacto'); ?>">Contacto</a></li>
                 <li><a href="<?= url('/aboutme'); ?>">Sobre Mí</a></li>
 
             </ul>
@@ -51,9 +51,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="https://github.com/Habier">
-                        <img src="{{asset('img/GitHub-Mark-32px.png')}}" alt="Enlace a mi github"/>GitHub
-                    </a>
+                    <a href="<?= url('/admin'); ?>">Ir a la intranet</a>
                 </li>
             </ul>
         </div>

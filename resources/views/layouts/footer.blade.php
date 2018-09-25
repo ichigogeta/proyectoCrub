@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
+
         <div id="footer-copyright" class="col-md-6">
-            <p>© {{date("Y")}} - Una creación de JaviGar.com</p>
-            <p> {{__('xerintel.copyright')}}</p>
+			Intranet Xerintel © {{date("Y")}} &nbsp;&nbsp;{{__('xerintel.copyright')}}<br>
+			Desarrollado por <a href="https://www.xerintel.es" class="custom-footer-a">Xerintel</a>
         </div>
         <div id="footer-resources" class="col-md-6">
             {{--
