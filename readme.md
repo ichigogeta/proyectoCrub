@@ -1,16 +1,17 @@
 ## About Laravel(Xerintel)
-Empieza configurando tu base de datos y url en el fichero **.env**  
-Modo nuevo:
+Duplica el fichero **.env.example** y llamalo solo **.env** y abrelo.  
+Configura tu base de datos, url, nombre de la applicación, etc.  
+Ahora instalamos la intranet:
 ```
 php artisan xerintel:install
 ```
-Antiguo modo:
+**OJO**, es posible que de error la primera vez, funcionará al segundo intento.
+
+Si necesitas más usuarios:
 ```
-php artisan key:generate
-php artisan voyager:install
 php artisan voyager:admin your@email.com --create
 ```
-**--create** Generará un usuario admin, omítelo para crear usuarios normales.
+**--create** Generará un usuario tipo admin, omítelo para crear usuarios normales.
 
 
 ## Configuraciones Básicas(trás instalar)
@@ -22,7 +23,7 @@ Route::group(['prefix' => 'admin'], function () {
 ```
 Reemplaza **admin** por tu prefijo deseado.
 
-##Creando tablas
+###Creando tablas
 Cuidado con los plurales y singulares. El convenio dicta que las tablas tienen nombres en plural y los modelos en singular.  
 Ejemplo: **el singular de Animales es Animale**, pero puedes llamar al modelo como quieras y especificarle la tabla dentro.
 ```
@@ -30,9 +31,12 @@ protected $table = 'animales';
 ```
 
 
-##Permisos
-Tu usuario administrador tiene todos los permisos por defecto, un usuario normal no.  
-Dale permisos en la pestaña **Roles**. **"Browse Admin"** es esencial para ver la intranet.
+###Permisos
+Los usuarios pertenecen a grupos, y los grupos contienen los permisos.  
+El grupo admin tiene todos los permisos por defecto, los demás tienen ninguno.  
+Dale permisos en la pestaña **Roles**.  
+**"Browse Admin"** es esencial para ver la intranet.
+
 
 ##Publicar web
 Es necesario que sea PHP 7.x
