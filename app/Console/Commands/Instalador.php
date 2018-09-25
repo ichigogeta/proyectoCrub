@@ -136,9 +136,6 @@ class Instalador extends Command
             \Voyager::routes();
         });
 
-        $this->info('Seeding data into the database');
-        $this->seed('VoyagerDatabaseSeeder');
-
         $this->info('Creando tablas por defecto');
         // if ($this->option('with-dummy')) {
         $this->info('Publishing dummy content');
@@ -155,6 +152,8 @@ class Instalador extends Command
 
         $this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => 'config']);
 
+        $this->info('Seeding data into the database');
+        $this->seed('VoyagerDatabaseSeeder');
 
         $this->info('Setting up the hooks');
         $this->call('hook:setup');
@@ -176,6 +175,8 @@ class Instalador extends Command
 
         // the user not returned
         if (!$user) {
+            $this->info('¿Es posible que el usuario ya existiera?');
+            $this->info('Cancelada creación de usuario');
             exit;
         }
 
@@ -230,6 +231,9 @@ class Instalador extends Command
         $email = "admin@admin.com";
 
         $model = config('voyager.user.namespace') ?: config('auth.providers.users.model');
+
+        if ($model::where('email', $email)->first())
+            return false;
 
         // If we need to create a new user go ahead and create it
         if ($create) {
