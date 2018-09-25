@@ -139,6 +139,7 @@ class Instalador extends Command
         $this->info('Seeding data into the database');
         $this->seed('VoyagerDatabaseSeeder');
 
+        $this->info('Creando tablas por defecto');
         // if ($this->option('with-dummy')) {
         $this->info('Publishing dummy content');
         //$tags = ['dummy_seeds', 'dummy_content', 'dummy_config', 'dummy_migrations'];
