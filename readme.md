@@ -1,6 +1,21 @@
-## About Laravel(Xerintel)
-Duplica el fichero **.env.example** y llamalo solo **.env** y abrelo.  
-Configura tu base de datos, url, nombre de la applicación, etc.  
+## Acerca de Laravel(Xerintel)
+[Laravel](https://laravel.com/docs/5.5/)(Framework) y [Voyager](https://voyager.readme.io/docs)(intranet). 
+
+###¿Qué ofrecen Laravel y Voyager?
+Rutas con  php, no más .htaccess  
+Separar el diseño de la lógica, para que puedas copiar y pegar a gusto.  
+Validación más sencilla con auto respuesta al usuario.  
+MultiLenguaje.  
+Login de usuarios con modulo de permisos por grupos.  
+Una intranet(Voyager) que se genera a si misma.  
+Menor uso de phpMyadmin.  
+Posibilidad de autocompletado en el IDE.  
+Todos los ficheros sigue siendo .php, menos los .js .css .png pero ya me entendeis.
+
+##Instalación
+Descomprime/clona el proyecto base.  
+Copia el fichero **.env.example** como **.env** y ábrelo.  
+Configura tu base de datos, url, nombre de la aplicación, etc.  
 Ahora instalamos la intranet:
 ```
 php artisan xerintel:install
@@ -45,21 +60,25 @@ Lo especial de los **helpers** es que están disponibles globalmente, incluso en
 
 ###BREAD
 **B**rowse **R**ead **E**dit **A**dd **D**elete.  
-El CRUD de toda la vida, con otro nombre y automático.
+El CRUD de toda la vida, con otro nombre y casi 100% automático.
 
 
 
 ##Publicar web
-Es necesario que sea PHP 7.x
+Es necesario PHP 7.1+
 
-Sube la base de datos y copia las credenciales al fichero .env y configuralo como production.  
-Sube/clona el proyecto a la carpeta privada.  
+1)Sube la base de datos.  
+2)Sube/clona el proyecto a la carpeta privada. Sube un zip no la carpeta al FTP.  
+3)Copia las credenciales al fichero .env y configuralo como production.  
+4)Otorga permisos.  
+5)Enlace simbólico a la carpeta public de laravel con la de cPanel.  
+6)Abre la intranet, si tiene errores te avisará.
+
+Nota, sobre permisos:  
 ```
 chmod -R o+w milaravel/storage
 ```
-Mediante enlace simbólico se enlaza la carpeta public de laravel con la de cPanel.
-
-Si falla o sale en blanco, corre a mirar storage/laravel.log
+Si falla o sale en blanco, mira **storage/logs/laravel.log** y encontrarás al culpable 
 
 
 
