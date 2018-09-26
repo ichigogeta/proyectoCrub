@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 abstract class SimpleModel extends Model
 {
@@ -20,6 +21,7 @@ abstract class SimpleModel extends Model
             \FlashHelper::success($success_msg);
             return true;
         } catch (\Exception $e) {
+            Log::error($e);
             \FlashHelper::warning('No se pudo guardar. Inténtelo más tarde o contacte con el administrador.');
             return false;
         }

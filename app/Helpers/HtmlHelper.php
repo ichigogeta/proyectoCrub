@@ -20,7 +20,7 @@ class jsHelper
 
 }
 
-class htmlHelper
+class HtmlHelper
 {
     /**
      * Shorcut HTML, confirma si eliminas y luego ejecuta la ruta especificada.
@@ -47,6 +47,28 @@ class htmlHelper
         if ($a == $b)
             return 'selected';
         return '';
+    }
+
+    /**
+     * Crea url con slug para las noticias/blog
+     *
+     * @param $post
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     */
+    public static function postURL($post)
+    {
+        return url('noticias/' . $post->id . '/' . $post->slug);
+    }
+
+
+    public static function tinyMCE($elem)
+    {
+        return "<script src='" . url('js/tinymce/tinymce.min.js') . "'></script>\n" .
+            "  <script>\n" .
+            "  tinymce.init({\n" .
+            "    selector: '" . $elem . "'\n" .
+            "  });\n" .
+            "</script>";
     }
 
 }
