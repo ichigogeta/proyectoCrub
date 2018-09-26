@@ -14,7 +14,7 @@ php artisan voyager:admin your@email.com --create
 **--create** Generará un usuario tipo admin, omítelo para crear usuarios normales.
 
 
-## Configuraciones Básicas(trás instalar)
+## Configuraciones Básicas
 Echa un ojo a tu fichero de rutas **web.php**, verás algo así
 ```
 Route::group(['prefix' => 'admin'], function () {
@@ -36,6 +36,17 @@ Los usuarios pertenecen a grupos, y los grupos contienen los permisos.
 El grupo admin tiene todos los permisos por defecto, los demás tienen ninguno.  
 Dale permisos en la pestaña **Roles**.  
 **"Browse Admin"** es esencial para ver la intranet.
+
+
+###Helpers
+Verás que tienes una carpeta **App/Helpers**.  
+Ahí puedes añadir tantos ficheros como quieras, crear clases estáticas o funciones directamente, pero ojo, no uses el nombre de otra función existente. 
+Lo especial de los **helpers** es que están disponibles globalmente, incluso en las plantillas.
+
+###BREAD
+**B**rowse **R**ead **E**dit **A**dd **D**elete.  
+El CRUD de toda la vida, con otro nombre y automático.
+
 
 
 ##Publicar web
