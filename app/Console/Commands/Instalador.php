@@ -123,6 +123,9 @@ class Instalador extends Command
         $process->setTimeout(null); // Setting timeout to null to prevent installation from stopping at a certain point in time
         $process->setWorkingDirectory(base_path())->run();
 
+        $this->info('Seeding data into the database');
+        $this->seed('VoyagerDatabaseSeeder');
+
         $this->info('Adding Voyager routes to routes/web.php');
         $routes_contents = $filesystem->get(base_path('routes/web.php'));
         if (false === strpos($routes_contents, 'Voyager::routes()')) {
@@ -140,20 +143,19 @@ class Instalador extends Command
         // if ($this->option('with-dummy')) {
         $this->info('Publishing dummy content');
         //$tags = ['dummy_seeds', 'dummy_content', 'dummy_config', 'dummy_migrations'];
-        $tags = ['dummy_migrations'];
+        //$tags = ['dummy_migrations'];
+        $tags = ['dummy_seeds', 'dummy_content', 'dummy_migrations'];
         $this->call('vendor:publish', ['--provider' => VoyagerDummyServiceProvider::class, '--tag' => $tags]);
 
         $this->info('Migrating dummy tables');
         $this->call('migrate');
-        /*
-          $this->info('Seeding dummy data');
-          $this->seed('VoyagerDummyDatabaseSeeder');
-        */
+
+        $this->info('Seeding dummy data');
+        $this->seed('VoyagerDummyDatabaseSeeder');
+
 
         $this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => 'config']);
 
-        $this->info('Seeding data into the database');
-        $this->seed('VoyagerDatabaseSeeder');
 
         $this->info('Setting up the hooks');
         $this->call('hook:setup');
