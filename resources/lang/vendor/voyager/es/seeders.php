@@ -1,0 +1,93 @@
+<?php
+
+return [
+    'data_rows'  => [
+        'author'           => 'Autor',
+        'avatar'           => 'Avatar',
+        'body'             => 'Cuerpo',
+        'category'         => 'Categoría',
+        'created_at'       => 'Fecha Creación',
+        'display_name'     => 'Nombre Mostrable',
+        'email'            => 'Email',
+        'excerpt'          => 'Entradilla',
+        'featured'         => 'Destacado',
+        'id'               => 'ID',
+        'meta_description' => 'Meta Descripción',
+        'meta_keywords'    => 'Meta palabras clave',
+        'name'             => 'Nombre',
+        'order'            => 'Ordenación',
+        'page_image'       => 'Imagen de Página',
+        'parent'           => 'Padre',
+        'password'         => 'Contraseña',
+        'post_image'       => 'Imagen de Noticia',
+        'remember_token'   => 'Token Recuerdame',
+        'role'             => 'Grupo',
+        'seo_title'        => 'Título SEO',
+        'slug'             => 'Slug',
+        'status'           => 'Estado',
+        'title'            => 'Título',
+        'updated_at'       => 'Fecha Modificación',
+    ],
+    'data_types' => [
+        'category' => [
+            'singular' => 'Categoría',
+            'plural'   => 'Categorías',
+        ],
+        'menu'     => [
+            'singular' => 'Menu',
+            'plural'   => 'Menus',
+        ],
+        'page'     => [
+            'singular' => 'Página',
+            'plural'   => 'Páginas',
+        ],
+        'post'     => [
+            'singular' => 'Noticia',
+            'plural'   => 'Noticias',
+        ],
+        'role'     => [
+            'singular' => 'Grupo',
+            'plural'   => 'Grupos',
+        ],
+        'user'     => [
+            'singular' => 'Usuario',
+            'plural'   => 'Usuarios',
+        ],
+    ],
+    'menu_items' => [
+        'bread'        => 'BREAD',
+        'categories'   => 'Categorías',
+        'compass'      => 'Compass',
+        'dashboard'    => 'Dashboard',
+        'database'     => 'Base de Datos',
+        'media'        => 'Media',
+        'menu_builder' => 'Menu Builder',
+        'pages'        => 'Páginas',
+        'posts'        => 'Noticias',
+        'roles'        => 'Grupos',
+        'settings'     => 'Configuraciones',
+        'tools'        => 'Herramientas',
+        'users'        => 'Usuarios',
+    ],
+    'roles'      => [
+        'admin' => 'Administrador',
+        'user'  => 'Usuario Normal',
+    ],
+    'settings'   => [
+        'admin' => [
+            'background_image'           => 'Imagen de Fondo Admin',
+            'description'                => 'Descripción Admin',
+            'description_value'          => 'Tu intranet Xerintel. Donde controlaras tu Web',
+            'google_analytics_client_id' => 'Google Analytics Client ID (Usado en admin dashboard)',
+            'icon_image'                 => 'Admin Icon Image',
+            'loader'                     => 'Admin Loader',
+            'title'                      => 'Admin Title',
+        ],
+        'site'  => [
+            'description'                  => 'Descripción del Sitio',
+            'google_analytics_tracking_id' => 'Google Analytics Tracking ID',
+            'logo'                         => 'Logo del Sitio',
+            'title'                        => 'Título del Sitio',
+        ],
+    ],
+];
