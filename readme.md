@@ -8,14 +8,21 @@ Validación más sencilla con auto respuesta al usuario.
 MultiLenguaje.  
 Login de usuarios con modulo de permisos por grupos.  
 Una intranet(Voyager) que se genera a si misma.  
+Todas las tareas programadas parten del mismo .php  
 Menor uso de phpMyadmin.  
 Posibilidad de autocompletado en el IDE.  
 Todos los ficheros sigue siendo .php, menos los .js .css .png pero ya me entendeis.
+
+##Requisitos
+XAMPP, Composer, Git, Nodejs y un IDE de categoría.
 
 ##Instalación
 Descomprime/clona el proyecto base.  
 Copia el fichero **.env.example** como **.env** y ábrelo.  
 Configura tu base de datos, url, nombre de la aplicación, etc.  
+```
+composer install
+```
 Ahora instalamos la intranet:
 ```
 php artisan xerintel:install
