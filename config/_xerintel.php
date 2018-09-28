@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'mail_cliente' => '',
+    'mail_cliente' => 'cliente@example.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ return [
     | Remitente de los emails enviados via PHP
     |
     */
-    'app_mail' => '',
+    'app_mail' => 'app@example.com',
 
     /*
     |--------------------------------------------------------------------------
