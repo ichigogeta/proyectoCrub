@@ -7,7 +7,7 @@ class MailHelper
      * @param $mail
      * @return bool
      */
-    private static function enviaMail($mail)
+    private static function enviar($mail)
     {
 
         try {
@@ -25,7 +25,7 @@ class MailHelper
      * @param $mail
      * @return bool
      */
-    private static function enviaMailSinFlash($mail)
+    private static function enviarSinFlash($mail)
     {
 
         try {
