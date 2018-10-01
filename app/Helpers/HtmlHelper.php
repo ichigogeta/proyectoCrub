@@ -76,4 +76,9 @@ class HtmlHelper
             "</script>";
     }
 
+    public static function asset($asset)
+    {
+        return asset($asset) . '?' . config('_xerintel.version');
+    }
+
 }

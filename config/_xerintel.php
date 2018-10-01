@@ -1,6 +1,16 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Version de la aplicación
+    |--------------------------------------------------------------------------
+    |
+    | CSS, JS, o imagenes, añade numero de versión a las rutas.
+    | Y así evitar caché del cliente.
+    |
+    */
+    'version' => 1,
 
     /*
     |--------------------------------------------------------------------------
@@ -10,7 +20,6 @@ return [
     | Avisos, formularío de contacto y otras necesidades.
     |
     */
-
     'mail_cliente' => 'cliente@example.com',
 
     /*
