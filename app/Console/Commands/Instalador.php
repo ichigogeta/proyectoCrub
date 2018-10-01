@@ -154,7 +154,7 @@ class Instalador extends Command
         $this->seed('VoyagerDummyDatabaseSeeder');
 
 
-        $this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => 'config']);
+        //$this->call('vendor:publish', ['--provider' => VoyagerServiceProvider::class, '--tag' => 'config']);
 
 
         $this->info('Setting up the hooks');

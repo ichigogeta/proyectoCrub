@@ -11,7 +11,7 @@ class FlashHelper
     /**
      * Todo correcto, cartel verde
      *
-     * @param $message mensaje a mostrar
+     * @param string $message mensaje a mostrar
      */
     public static function success($message)
     {
@@ -21,7 +21,7 @@ class FlashHelper
     /**
      * Flash informativo, neutral
      *
-     * @param $message mensaje a mostrar
+     * @param string $message mensaje a mostrar
      */
     public static function info($message)
     {
@@ -31,7 +31,7 @@ class FlashHelper
     /**
      * Flash Advertencia, amarillo/naranja
      *
-     * @param $message mensaje a mostrar
+     * @param string $message mensaje a mostrar
      */
     public static function warning($message)
     {
@@ -41,7 +41,7 @@ class FlashHelper
     /**
      * Flash peligro o error, rojo
      *
-     * @param $message mensaje a mostrar
+     * @param string message mensaje a mostrar
      */
     public static function danger($message)
     {
@@ -53,5 +53,4 @@ class FlashHelper
         session()->flash('flash_notification', ['level' => $level, 'message' => $message]);
     }
 }
-//dd(session()->all());
 
