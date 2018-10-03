@@ -5,14 +5,15 @@ class MailHelper
 
     /**
      * @param $mail
+     * @param string $mensaje
      * @return bool
      */
-    public static function enviar($mail)
+    public static function enviar($mail, $mensaje = 'Su email ha sido enviado.')
     {
 
         try {
             Mail::send($mail);
-            \FlashHelper::success('Su email ha sido enviado.');
+            \FlashHelper::success($mensaje);
             return true;
         } catch (\Exception $e) {
             Log::error($e);
