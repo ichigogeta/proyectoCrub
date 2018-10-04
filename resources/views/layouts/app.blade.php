@@ -17,7 +17,9 @@
 @include('flash.normal')
 <div id="container" class="container">
     @yield('content')
-    @include('layouts.cookie_law')
+    {{--
+        @include('layouts.cookie_law')
+    --}}
 </div>
 <footer class="footer">
     @include('layouts.footer')

@@ -17,5 +17,6 @@
         <!-- Esto es un comentario público-->
         {{-- Esto es un comentario privado --}}
         <h1>Si puedes leer esto, es que se instaló bien.</h1>
+        <p>Barra de cookies ocultada, ver más en views/layouts/app.blade.php</p>
     </div>
 @endsection
