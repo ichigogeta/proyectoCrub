@@ -9,7 +9,7 @@
 
 @section('title')
     @parent
-    - Soy una plantilla vacía
+    - Notícias
 @endsection
 
 @section('content')

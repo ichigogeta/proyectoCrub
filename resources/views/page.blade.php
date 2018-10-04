@@ -9,7 +9,7 @@
 
 @section('title')
     @parent
-    - Soy una plantilla vacía
+    - Soy una página
 @endsection
 
 @section('content')
