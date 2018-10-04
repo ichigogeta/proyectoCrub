@@ -16,6 +16,14 @@ Route::get('/', function () {
 });
 
 
+Route::get('/noticias', 'PostController@listAll')->name('noticias');
+Route::get('/noticias/{id}/{slug?}', 'PostController@read');
+Route::get('/contacto', 'ContactoController@read')->name('contacto');
+Route::post('/contacto', 'ContactoController@send');
+
+Route::get('/pagina/{id}/{slug?}', 'PageController@read');
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
