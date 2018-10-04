@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactoMail;
 use App\Http\Requests\ContactoRequest;
-use App\Contacto;
 
 
 class ContactoController extends Controller
@@ -19,7 +18,7 @@ class ContactoController extends Controller
     public function send(ContactoRequest $request)
     {
 
-        $contact = new Contacto();
+        $contact = new \stdClass();
         $contact->nombre = request('nombre');
         $contact->email = request('email');
         $contact->body = request('cuerpo');
