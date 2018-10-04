@@ -10,7 +10,7 @@ Datos del contacto:
         Email: <a href="mailto:{{ $mail->email }}">{{ $mail->email }}</a>
     </p>
     <p>
-        Telefono: <a href="mailto:{{ $mail->email }}">{{ $mail->email }}</a>
+        Telefono: {{ $mail->phone }}
     </p>
     <p>{{ $mail->body }}</p>
 </div>
