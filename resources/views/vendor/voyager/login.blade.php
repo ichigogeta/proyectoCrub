@@ -14,7 +14,7 @@
     @endif
     <style>
         body {
-            background-image: url('{{ Voyager::image( Voyager::setting("admin.bg_image"), voyager_asset("images/bg.jpg") ) }}');
+
             background-color: {{ Voyager::setting("admin.bg_color", "#FFFFFF" ) }};
         }
 
@@ -48,6 +48,18 @@
                 bottom: 48%;
                 left: 5%;
             }
+        }
+
+        body.login .faded-bg {
+            background: none;
+            background-color: {{Voyager::setting("admin.bg_color", "rgb(168,207,81)" )}};
+        {{--
+        background: linear-gradient(to bottom, rgba(21, 21, 28, 0) 0, rgba(21, 21, 28, .1) 40%, rgba(21, 21, 28, .3) 55%, rgba(21, 21, 28, .61) 75%, #15151c 100%);
+        filter:
+        progid: DXImageTransform . Microsoft . gradient(startColorstr = '#0015151c', endColorstr = '#15151c', GradientType = 0);
+        --}}
+
+
         }
     </style>
 
