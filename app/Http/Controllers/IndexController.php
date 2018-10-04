@@ -12,6 +12,6 @@ class IndexController extends Controller
         $posts = Post::whereStatus('PUBLISHED')->orderBy('created_at')->limit(3)->get();
         $slides = Slide::orderBy('order')->get();
 
-        return view('welcome', ['posts' => $posts, 'slides' => $slides]);
+        return view('welcome', ['posts' => $posts]);//, 'slides' => $slides]);
     }
 }

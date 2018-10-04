@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'IndexController@index')->name('home');
 
 Route::get('/noticias', 'PostController@listAll')->name('noticias');
 Route::get('/noticias/{id}/{slug?}', 'PostController@read');
