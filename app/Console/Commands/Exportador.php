@@ -122,9 +122,9 @@ class Exportador extends Command
     {
         return'//****Código****//'.PHP_EOL.
             ''.PHP_EOL.
-            '        $table = $data[\'name\'];'.PHP_EOL.
-            '        if (DataType::whereName($table)->first()) {'.PHP_EOL.
-            '            echo(\'La tabla indicada existe como BREAD. Abortando\');'.PHP_EOL.
+            '        $tab|le = $data[\'name\'];'.PHP_EOL.
+            '        if (Schema::hasTable($table) || DataType::whereName($table)->first()) {'.PHP_EOL.
+            '            echo(\'ERROR - La tabla \' . $table . \'ya existe y/o tiene un BREAD asociado. Abortando\');'.PHP_EOL.
             '            return;'.PHP_EOL.
             '        }'.PHP_EOL.
             ''.PHP_EOL.
