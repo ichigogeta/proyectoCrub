@@ -14,7 +14,7 @@ use TCG\Voyager\VoyagerServiceProvider;
 use Illuminate\Support\Facades\Hash;
 use TCG\Voyager\Facades\Voyager;
 
-class Instalador extends Command
+class InstaladorCommand extends Command
 {
     use Seedable;
     protected $seedersPath = __DIR__ . '/../../publishable/database/seeds/';

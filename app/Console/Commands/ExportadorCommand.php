@@ -6,11 +6,10 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\DataRow;
-use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\MenuItem;
 use Storage;
 
-class Exportador extends Command
+class ExportadorCommand extends Command
 {
 
     private $filename;
@@ -129,7 +128,7 @@ class Exportador extends Command
             '' . PHP_EOL .
             '        $table = $data[\'name\'];' . PHP_EOL .
             '        if (Schema::hasTable($table) || DataType::whereName($table)->first()) {' . PHP_EOL .
-            '            echo(\'ERROR - La tabla \' . $table . \'ya existe y/o tiene un BREAD asociado. Abortando\');' . PHP_EOL .
+            '            echo(\'ERROR - La tabla \' . $table . \' ya existe y/o tiene un BREAD asociado. Abortando\');' . PHP_EOL .
             '            return;' . PHP_EOL .
             '        }' . PHP_EOL .
             '        DB::statement($query);' . PHP_EOL .
