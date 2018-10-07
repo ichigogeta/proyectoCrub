@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\Permission;
@@ -59,10 +60,13 @@ class Exportador extends Command
         //$perms = Permission::generateFor($table);//para importar
         $menu = MenuItem::where('route', 'voyager.' . $table . '.index')->first();
 
+        $query = DB::select('SHOW CREATE TABLE ' . $table);
+        $query = $query[0]->{'Create Table'};
         $fichero = $this->fileStart();
         $fichero .= $this->ObjectToSeed('$data', $data);
         $fichero .= $this->ArrayToSeed('$rows', $rows);
         $fichero .= $this->ObjectToSeed('$menu', $menu);
+        $fichero .= '$query' . '=' . var_export($query, true) . ";\n";
         $fichero .= $this->fileEnd();
 
 
@@ -101,6 +105,7 @@ class Exportador extends Command
     {
         return "<?php\n" .
             "\n" .
+            "use Illuminate\Support\Facades\DB;\n" .
             "use Illuminate\Database\Seeder;\n" .
             "use TCG\Voyager\Models\DataType;\n" .
             "use TCG\Voyager\Models\DataRow;\n" .
@@ -120,45 +125,45 @@ class Exportador extends Command
 
     private function fileEnd()
     {
-        return'//****Código****//'.PHP_EOL.
-            ''.PHP_EOL.
-            '        $tab|le = $data[\'name\'];'.PHP_EOL.
-            '        if (Schema::hasTable($table) || DataType::whereName($table)->first()) {'.PHP_EOL.
-            '            echo(\'ERROR - La tabla \' . $table . \'ya existe y/o tiene un BREAD asociado. Abortando\');'.PHP_EOL.
-            '            return;'.PHP_EOL.
-            '        }'.PHP_EOL.
-            ''.PHP_EOL.
-            '        $newData = new DataType();'.PHP_EOL.
-            '        $newData->fill($data)->save();'.PHP_EOL.
-            ''.PHP_EOL.
-            '        foreach ($rows as $row) {'.PHP_EOL.
-            '            var_dump($row);'.PHP_EOL.
-            '            $row[\'data_type_id\'] = $newData->id;'.PHP_EOL.
-            '            $newRow = new DataRow();'.PHP_EOL.
-            '            $newRow->fill($row)->save();'.PHP_EOL.
-            '        }'.PHP_EOL.
-            ''.PHP_EOL.
-            '        $newMenu = new MenuItem();'.PHP_EOL.
-            '        $newMenu->fill($menu);'.PHP_EOL.
-            '        unset($newMenu->parent_id);'.PHP_EOL.
-            '        $newMenu->order = MenuItem::orderBy(\'order\', \'desc\')->first()->order + 1;'.PHP_EOL.
-            '        $newMenu->save();'.PHP_EOL.
-            ''.PHP_EOL.
-            '        if ($newData->generate_permissions) {'.PHP_EOL.
-            '            Permission::generateFor($table);'.PHP_EOL.
-            '            $role = Voyager::model(\'Role\')->where(\'name\', \'admin\')->first();'.PHP_EOL.
-            ''.PHP_EOL.
-            '            // Get all permissions'.PHP_EOL.
-            '            $permissions = Voyager::model(\'Permission\')->all();'.PHP_EOL.
-            ''.PHP_EOL.
-            '            // Assign all permissions to the admin role'.PHP_EOL.
-            '            $role->permissions()->sync('.PHP_EOL.
-            '                $permissions->pluck(\'id\')->all()'.PHP_EOL.
-            '            );'.PHP_EOL.
-            '        }'.PHP_EOL.
-            ' '.PHP_EOL.
-            '        echo \'Fin de la importación de \' . $table;'.PHP_EOL.
-            '    }'.PHP_EOL.
+        return '//****Código****//' . PHP_EOL .
+            '' . PHP_EOL .
+            '        $table = $data[\'name\'];' . PHP_EOL .
+            '        if (Schema::hasTable($table) || DataType::whereName($table)->first()) {' . PHP_EOL .
+            '            echo(\'ERROR - La tabla \' . $table . \'ya existe y/o tiene un BREAD asociado. Abortando\');' . PHP_EOL .
+            '            return;' . PHP_EOL .
+            '        }' . PHP_EOL .
+            '        DB::statement($query);' . PHP_EOL .
+            '        $newData = new DataType();' . PHP_EOL .
+            '        $newData->fill($data)->save();' . PHP_EOL .
+            '' . PHP_EOL .
+            '        foreach ($rows as $row) {' . PHP_EOL .
+            '            var_dump($row);' . PHP_EOL .
+            '            $row[\'data_type_id\'] = $newData->id;' . PHP_EOL .
+            '            $newRow = new DataRow();' . PHP_EOL .
+            '            $newRow->fill($row)->save();' . PHP_EOL .
+            '        }' . PHP_EOL .
+            '' . PHP_EOL .
+            '        $newMenu = new MenuItem();' . PHP_EOL .
+            '        $newMenu->fill($menu);' . PHP_EOL .
+            '        unset($newMenu->parent_id);' . PHP_EOL .
+            '        $newMenu->order = MenuItem::orderBy(\'order\', \'desc\')->first()->order + 1;' . PHP_EOL .
+            '        $newMenu->save();' . PHP_EOL .
+            '' . PHP_EOL .
+            '        if ($newData->generate_permissions) {' . PHP_EOL .
+            '            Permission::generateFor($table);' . PHP_EOL .
+            '            $role = Voyager::model(\'Role\')->where(\'name\', \'admin\')->first();' . PHP_EOL .
+            '' . PHP_EOL .
+            '            // Get all permissions' . PHP_EOL .
+            '            $permissions = Voyager::model(\'Permission\')->all();' . PHP_EOL .
+            '' . PHP_EOL .
+            '            // Assign all permissions to the admin role' . PHP_EOL .
+            '            $role->permissions()->sync(' . PHP_EOL .
+            '                $permissions->pluck(\'id\')->all()' . PHP_EOL .
+            '            );' . PHP_EOL .
+            '        }' . PHP_EOL .
+            ' ' . PHP_EOL .
+            '        echo \'Fin de la importación de \' . $table;' . PHP_EOL .
+            '    }' . PHP_EOL .
             '}';
     }
 }
