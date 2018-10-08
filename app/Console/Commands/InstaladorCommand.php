@@ -65,7 +65,9 @@ class InstaladorCommand extends Command
     /**
      * Execute the console command.
      *
+     * @param Filesystem $filesystem
      * @return mixed
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function handle(Filesystem $filesystem)
     {
@@ -73,7 +75,7 @@ class InstaladorCommand extends Command
             Artisan::call('key:generate');
         }
 
-        $this->intall($filesystem);
+        $this->install($filesystem);
         $this->createAdmin();
 
         $this->info('Successfully installed Voyager! Enjoy');
@@ -87,8 +89,9 @@ class InstaladorCommand extends Command
      * @param \Illuminate\Filesystem\Filesystem $filesystem
      *
      * @return void
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    private function intall(Filesystem $filesystem)
+    private function install(Filesystem $filesystem)
     {
         $this->info('Publishing the Voyager assets, database, and config files');
 
@@ -230,7 +233,7 @@ class InstaladorCommand extends Command
     protected function getUser($create = false)
     {
         //$email = $this->argument('email');
-        $email = "admin@admin.com";
+        $email = "info@xerintel.es";
 
         $model = config('voyager.user.namespace') ?: config('auth.providers.users.model');
 
@@ -240,7 +243,7 @@ class InstaladorCommand extends Command
         // If we need to create a new user go ahead and create it
         if ($create) {
             $name = 'Xerintel';//$this->ask('Enter the admin name');
-            $password = $this->secret('Escribe contraseña del usuario admin');
+            $password = $this->secret('Escribe contraseña del usuario: ' . $email);
             $confirmPassword = $this->secret('Confirma la contraseña anterior');
 
             // Ask for email if there wasnt set one
