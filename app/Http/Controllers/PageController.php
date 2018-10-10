@@ -11,6 +11,9 @@ class PageController extends Controller
     {
         $page = Page::findOrFail($id);
 
+        if ($page->status != 'ACTIVE')
+            abort(404);
+
         return view('page', ['post' => $page]);
 
     }
