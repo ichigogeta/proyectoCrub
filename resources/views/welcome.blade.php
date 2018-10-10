@@ -2,14 +2,14 @@
 
 @section('meta')
     <meta name="description"
-          content="Projecto de intranet xerintel con laravel">
-    <meta name="keywords" content="xerintel,laravel,projecto,intranet,web">
+          content="Página de inicio">
+    <meta name="keywords" content="xerintel,,projecto,web">
     {{-- <meta name="author" content="Javier García"> --}}
 @endsection
 
 @section('title')
     @parent
-    - Intranet 2018
+    - Inicio
 @endsection
 
 @section('content')
