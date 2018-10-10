@@ -37,17 +37,39 @@
             background: {{ config('voyager.primary_color','#22A7F0') }};
         }
 
-        body.login .logo-title-container {
+        {{--
+         body.login .logo-title-container {
             margin-top: 0;
-            bottom: 47%;
+            bottom: 42%;
             left: 25%;
         }
 
         @media (max-width: 790px) {
             body.login .logo-title-container {
-                bottom: 48%;
+                bottom: 42%;
                 left: 5%;
             }
+        }
+
+        body.login .logo {
+            height: auto;
+            max-width: 156px;
+            margin: 0 auto;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-left: 92px;
+            margin-bottom: 1em;
+        }
+
+        body.login .copy {
+            width: auto;
+            padding: 0;
+        }
+        --}}
+.logo {
+            height: 156px !important;
+            max-width: 156px !important;
+            padding: 0 !important;
         }
 
         body.login .faded-bg {
@@ -60,6 +82,29 @@
         --}}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     </style>
 
@@ -69,25 +114,25 @@
 <div class="container-fluid">
     <div class="row">
         <div class="faded-bg animated"></div>
-        <div class="hidden-xs col-sm-7 col-md-8">
-            <div class="clearfix">
-                <div class="col-sm-12 col-md-10 col-md-offset-2">
-                    <div class="logo-title-container">
-                        <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
-                        @if($admin_logo_img == '')
-                            <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn"
-                                 src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
-                        @else
-                            <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn"
-                                 src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
-                        @endif
-                        <div class="copy animated fadeIn">
-                            <h1>{{ Voyager::setting('admin.title', 'Voyager') }}</h1>
-                            <p>{{ Voyager::setting('admin.description', __('voyager::login.welcome')) }}</p>
-                        </div>
-                    </div> <!-- .logo-title-container -->
-                </div>
+        <div class="hidden-xs col-sm-7 col-md-8" style="margin-top: 40vh;">
+
+
+            <div class="row" style="display: flex; justify-content: center">
+                <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
+                @if($admin_logo_img == '')
+                    <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn"
+                         src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
+                @else
+                    <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn"
+                         src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
+                @endif
             </div>
+            <div class="animated fadeIn row" style="text-align: center">
+                {{-- <h1>{{ Voyager::setting('admin.title', 'Voyager') }}</h1>--}}
+                <p style="color: white;margin-top: 1.4em;">{{ Voyager::setting('admin.description', __('voyager::login.welcome')) }}</p>
+            </div>
+
+
         </div>
 
         <div class="col-xs-12 col-sm-5 col-md-4 login-sidebar">
