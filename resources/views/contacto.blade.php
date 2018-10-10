@@ -9,7 +9,7 @@
 
 @section('title')
     @parent
-    - contacto
+    - Contacto
 @endsection
 
 @section('content')
