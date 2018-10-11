@@ -71,7 +71,7 @@ class InstaladorCommand extends Command
      */
     public function handle(Filesystem $filesystem)
     {
-        if (!env('APP_KEY')) {
+        if (!env('APP_KEY') && env('APP_DEBUG')) {
             Artisan::call('key:generate');
         }
 
