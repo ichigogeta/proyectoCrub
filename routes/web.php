@@ -21,6 +21,6 @@ Route::post('/contacto', 'ContactoController@send');
 Route::get('/pagina/{id}/{slug?}', 'PageController@read');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes();
 });
