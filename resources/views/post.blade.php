@@ -9,7 +9,7 @@
 
 @section('title')
     @parent
-    - Soy un post
+    - Noticia de Ejemplo
 @endsection
 
 @section('content')
