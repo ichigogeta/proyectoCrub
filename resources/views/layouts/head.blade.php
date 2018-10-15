@@ -26,11 +26,10 @@
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-    <link href="{{url(mix('css/app.css')) }}" rel="stylesheet">
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>--}}
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 
+    {{-- NUESTROS ESTILOS Y SCRIPTS --}}
+    @yield('late_head')
+    <link href="{{url(mix('css/app.css')) }}" rel="stylesheet"> {{-- mix() es lo mismo que asset() pero si usas SASS --}}
     <script src="{{ asset('js/app.js') }}"></script>
 </head>

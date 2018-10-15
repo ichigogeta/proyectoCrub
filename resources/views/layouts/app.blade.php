@@ -5,7 +5,6 @@
 
 <body id="app-layout">
 
-@yield('special_content')
 @include('layouts.navbar')
 @include('layouts.errors')
 @include('flash.normal')
@@ -16,5 +15,6 @@
 </div>
 
 @include('layouts.footer')
+@yield('late_footer')
 </body>
 </html>

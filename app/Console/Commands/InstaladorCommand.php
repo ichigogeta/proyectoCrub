@@ -126,8 +126,6 @@ class InstaladorCommand extends Command
         $process->setTimeout(null); // Setting timeout to null to prevent installation from stopping at a certain point in time
         $process->setWorkingDirectory(base_path())->run();
 
-        $this->info('Seeding data into the database');
-        $this->seed('VoyagerDatabaseSeeder');
 
         $this->info('Adding Voyager routes to routes/web.php');
         $routes_contents = $filesystem->get(base_path('routes/web.php'));
@@ -142,7 +140,10 @@ class InstaladorCommand extends Command
             \Voyager::routes();
         });
 
-        $this->info('Creando tablas por defecto');
+        $this->info('Seeding data into the database');
+        $this->seed('VoyagerDatabaseSeeder');
+
+        $this->info('Creando contenidos por defecto');
         // if ($this->option('with-dummy')) {
         $this->info('Publishing dummy content');
         //$tags = ['dummy_seeds', 'dummy_content', 'dummy_config', 'dummy_migrations'];
