@@ -2,7 +2,7 @@
 
 return [
 
-    'enabled' => env('HOOKS_ENABLED', true),
+    'enabled' => env('HOOKS_ENABLED', false),
 
     'add-route'            => true,
     'add-hook-menu-item'   => true,
