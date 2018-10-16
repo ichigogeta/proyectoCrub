@@ -61,7 +61,7 @@ return [
         'dashboard' => 'Dashboard',
         'database' => 'Base de Datos',
         'media' => 'Media',
-        'menu_builder' => 'Menu Builder',
+        'menu_builder' => 'Constructor de Menú',
         'pages' => 'Páginas',
         'posts' => 'Noticias',
         'roles' => 'Grupos',
