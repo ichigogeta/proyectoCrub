@@ -18,7 +18,7 @@ Route::get('/noticias/{id}/{slug?}', 'PostController@read');
 Route::get('/contacto', 'ContactoController@read')->name('contacto');
 Route::post('/contacto', 'ContactoController@send');
 
-Route::get('/pagina/{id}/{slug?}', 'PageController@read');
+Route::get('/pagina/{slug}', 'PageController@read');
 
 
 Route::group(['prefix' => 'intranet'], function () {

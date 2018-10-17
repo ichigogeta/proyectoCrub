@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use TCG\Voyager\Models\Page;
+use App\Page;
 
 class PageController extends Controller
 {
-    public function read($id)
+    public function read($slug)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::where('slug', $slug)->firstOrFail();
 
         if ($page->status != 'ACTIVE')
             abort(404);
