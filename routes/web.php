@@ -23,3 +23,8 @@ Route::get('/pagina/{slug}', 'PageController@read');
 Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+/*
+Route::get('/home', 'HomeController@index')->name('home');
+*/

@@ -19,6 +19,8 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             {{menu('mi_web','layouts.menu_protegido')}}
+
+            @include('layouts.login_menu')
         </div>
     </div>
 </nav>
