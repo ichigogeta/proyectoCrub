@@ -11,20 +11,19 @@
                     @else
                         <li class="active">
                             <a href="{{ route('voyager.dashboard')}}"><i
-                                        class="voyager-boat"></i> {{ __('voyager::generic.dashboard') }}</a>
+                                        class="voyager-home"></i> {{ __('voyager::generic.dashboard') }}</a>
                         </li>
                     @endif
                     <?php $breadcrumb_url = url(''); ?>
                     @for($i = 1; $i <= count(Request::segments()); $i++)
                         <?php $breadcrumb_url .= '/' . Request::segment($i); ?>
                         @if(Request::segment($i) != ltrim(route('voyager.dashboard', [], false), '/') && !is_numeric(Request::segment($i)))
-                            {{-- Aquí es donde necesito las traducciones --}}
                             @if($i < count(Request::segments()) & $i > 0 && array_search('database',Request::segments())===false)
                                 <li class="active"><a
-                                            href="{{ $breadcrumb_url }}">{{ ucwords(str_replace('-', ' ', str_replace('_', ' ', Request::segment($i)))) }}</a>
+                                            href="{{ $breadcrumb_url }}">{{ __(ucwords(str_replace('-', ' ', str_replace('_', ' ', Request::segment($i))))) }}</a>
                                 </li>
                             @else
-                                <li>{{ ucwords(str_replace('-', ' ', str_replace('_', ' ', Request::segment($i)))) }}</li>
+                                <li>{{ __(ucwords(str_replace('-', ' ', str_replace('_', ' ', Request::segment($i))))) }}</li>
                             @endif
 
                         @endif
