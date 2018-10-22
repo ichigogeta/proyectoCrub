@@ -24,7 +24,10 @@ Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes();
 });
 
-Auth::routes();
+
+/*
+Auth::routes(); //Rutas de login sin direccionarte a la intranet y con registro público
+*/
 /*
 Route::get('/home', 'HomeController@index')->name('home');
 */
