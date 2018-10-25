@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'category'         => 'Categoría del Post',
-    'content'          => 'Contenido del Post',
-    'details'          => 'Detalles del Post',
-    'excerpt'          => 'Extracto<small> Pequeña descripción de este post </small>',
+    'category'         => 'Categoría de la Noticia',
+    'content'          => 'Contenido de la Noticia',
+    'details'          => 'Detalles de la Noticia',
+    'excerpt'          => 'Extracto<small> Pequeña descripción de esta noticia </small>',
     'image'            => 'Publicar imagen',
     'meta_description' => 'Meta Descripción',
     'meta_keywords'    => 'Meta palabras clave',
-    'new'              => 'Crear nuevo post',
+    'new'              => 'Crear nueva Noticia',
     'seo_content'      => 'Contenido SEO',
     'seo_title'        => 'Título Seo',
     'slug'             => 'URL slug',
@@ -16,7 +16,7 @@ return [
     'status_draft'     => 'borrador',
     'status_pending'   => 'pendiente',
     'status_published' => 'publicado',
-    'title'            => 'Título del Post',
-    'title_sub'        => 'El título de Post',
-    'update'           => 'Actualizar Post',
+    'title'            => 'Título de la Noticia',
+    'title_sub'        => 'El título de la Noticia',
+    'update'           => 'Actualizar Noticia',
 ];
