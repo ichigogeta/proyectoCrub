@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Process\Process;
 
 class GitPullCommand extends Command
@@ -34,6 +35,18 @@ class GitPullCommand extends Command
 
     public function handle()
     {
+        $this->gitPull();
+
+        $this->composerInstall();
+
+        $this->optimizaciones();
+    }
+
+    /**
+     * Ejecuta git pull o force pull si se le indicó.
+     */
+    private function gitPull()
+    {
         if ($this->option('force')) {
             echo('Pull Sobreescribiendo cambios no guardados e ignorados' . PHP_EOL);
             $this->runProcess(array('git', 'fetch', 'origin', 'master'));
@@ -41,21 +54,37 @@ class GitPullCommand extends Command
         } else {
             $this->runProcess(array('git', 'pull'));
         }
+    }
 
-
-        if ($this->option('full')) {
-
+    /**
+     * Si se especificó, ejecutara composer install
+     */
+    private function composerInstall()
+    {
+        if ($this->option('composer')) {
             echo 'Ejecutando composer install. Esto tomará un tiempo.' . PHP_EOL;
-
             $this->runProcess(array('composer', 'install'), null);
 
         } else {
             echo 'Ejecutada version rápida. Usa el argumento "--full" para la versión completa.' . PHP_EOL;
-
         }
-
     }
 
+    /**
+     * Solo en producción ejecutará optimizaciones
+     */
+    private function optimizaciones()
+    {
+        if (!config('app.debug')) {
+            Artisan::call('route:cache');
+        }
+    }
+
+    /**
+     * Ejecuta el comando shell indicado
+     * @param $commandArray
+     * @param int $timeout 300 segundos por defecto
+     */
     private function runProcess($commandArray, $timeout = 300)
     {
         $process = new Process($commandArray);
