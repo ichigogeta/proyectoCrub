@@ -42,15 +42,16 @@ class GitPullCommand extends Command
         $this->runProcess(array('git', 'pull'));
 
         if ($this->argument('full')) {
-            $this->runProcess(array('composer', 'install'));
+            $this->runProcess(array('composer', 'install'),null);
         }
 
 
     }
 
-    private function runProcess($commandArray)
+    private function runProcess($commandArray, $timeout = 300)
     {
         $process = new Process($commandArray);
+        $process->setTimeout($timeout);
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
                 echo 'ERR > ' . $buffer;
