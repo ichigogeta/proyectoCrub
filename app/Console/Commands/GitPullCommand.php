@@ -12,7 +12,7 @@ class GitPullCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'xerintel:pull {full?}';
+    protected $signature = 'xerintel:pull {--composer} {--force}';
 
     /**
      * The console command description.
@@ -34,17 +34,25 @@ class GitPullCommand extends Command
 
     public function handle()
     {
-        if ($this->argument('full')) {
-            echo 'Ejecutando version completa. Esto tomará mas tiempo.' . PHP_EOL;
+        if ($this->option('force')) {
+            echo('Pull Sobreescribiendo cambios no guardados e ignorados' . PHP_EOL);
+            $this->runProcess(array('git', 'fetch', 'origin', 'master'));
+            $this->runProcess(array('git', 'reset', '--hard', 'origin/master'));
         } else {
-            echo 'Ejecutando version rápida. Usa el argumento "full" para la versión completa.' . PHP_EOL;
-        }
-        $this->runProcess(array('git', 'pull'));
-
-        if ($this->argument('full')) {
-            $this->runProcess(array('composer', 'install'),null);
+            $this->runProcess(array('git', 'pull'));
         }
 
+
+        if ($this->option('full')) {
+
+            echo 'Ejecutando composer install. Esto tomará un tiempo.' . PHP_EOL;
+
+            $this->runProcess(array('composer', 'install'), null);
+
+        } else {
+            echo 'Ejecutada version rápida. Usa el argumento "--full" para la versión completa.' . PHP_EOL;
+
+        }
 
     }
 
