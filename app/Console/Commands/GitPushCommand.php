@@ -57,6 +57,8 @@ class GitPushCommand extends Command
     {
         $process = new Process($commandArray);
         $process->setTimeout($timeout);
+        $process->setWorkingDirectory(base_path());
+
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
                 echo 'ERR > ' . $buffer;
