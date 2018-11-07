@@ -52,6 +52,7 @@ class ExportadorCommand extends Command
             return;
         }
 
+        echo 'Comenzando Exportación.' . PHP_EOL;
         $this->filename = ucfirst($table) . 'ModuleSeeder';
 
         $rows = DataRow::where('data_type_id', $data->id)->get();
@@ -71,7 +72,7 @@ class ExportadorCommand extends Command
         $storage = Storage::createLocalDriver(['root' => base_path() . '/database/seeds/']);
 
         $storage->put($this->filename . '.php', $fichero);
-        //dd($data->getAttributes());
+        echo 'Exportación finalizada.' . PHP_EOL;
     }
 
 
@@ -85,6 +86,7 @@ class ExportadorCommand extends Command
     {
         for ($i = 0; $i < $fields->count(); $i++) {
             $fields[$i] = $this->limpiaCampos($fields[$i]);
+            $fields[$i]['details'] = $fields[$i]->getOriginal('details');
         }
         return $variable_name . '=' . var_export($fields->toArray(), true) . ";\n";
     }
@@ -94,7 +96,6 @@ class ExportadorCommand extends Command
         unset($data->created_at);
         unset($data->updated_at);
         unset($data->id);
-        unset($data->details);
 
         return $data;
     }
@@ -138,7 +139,9 @@ class ExportadorCommand extends Command
             '            var_dump($row);' . PHP_EOL .
             '            $row[\'data_type_id\'] = $newData->id;' . PHP_EOL .
             '            $newRow = new DataRow();' . PHP_EOL .
-            '            $newRow->fill($row)->save();' . PHP_EOL .
+            '            $newRow->fill($row);' . PHP_EOL .
+            '            $newRow->details = json_decode($row[\'details\']);' . PHP_EOL .
+            '            $newRow->save();' . PHP_EOL .
             '        }' . PHP_EOL .
             '' . PHP_EOL .
             '        $newMenu = new MenuItem();' . PHP_EOL .
