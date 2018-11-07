@@ -162,8 +162,6 @@ class ExportadorCommand extends Command
             '                $permissions->pluck(\'id\')->all()' . PHP_EOL .
             '            );' . PHP_EOL .
             '        }' . PHP_EOL .
-            ' ' . PHP_EOL .
-            '        echo \'Fin de la importación de \' . $table;' . PHP_EOL .
             '    }' . PHP_EOL .
             '}';
     }

@@ -36,8 +36,12 @@ class ImportadorCommand extends Command
      */
     public function handle()
     {
+        echo 'Comenzando importación' . PHP_EOL;
+
         $tabla = ucfirst($this->argument('tabla'));
         $argument = $tabla . 'ModuleSeeder';
         $this->call('db:seed', ['--class' => $argument]);
+
+        echo 'Fin del script de importación' . PHP_EOL;
     }
 }
