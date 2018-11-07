@@ -136,7 +136,6 @@ class ExportadorCommand extends Command
             '        $newData->fill($data)->save();' . PHP_EOL .
             '' . PHP_EOL .
             '        foreach ($rows as $row) {' . PHP_EOL .
-            '            var_dump($row);' . PHP_EOL .
             '            $row[\'data_type_id\'] = $newData->id;' . PHP_EOL .
             '            $newRow = new DataRow();' . PHP_EOL .
             '            $newRow->fill($row);' . PHP_EOL .
