@@ -35,7 +35,7 @@ class GitPullCommand extends Command
 
     public function handle()
     {
-        //   $this->gitPull();
+        $this->gitPull();
 
         $this->composerInstall();
 
