@@ -13,7 +13,7 @@ class GitPullCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'xerintel:pull {--composer} {--force}';
+    protected $signature = 'xerintel:pull {--force} {--c|composer} {--o|optimize} {--f|full}';
 
     /**
      * The console command description.
@@ -35,7 +35,7 @@ class GitPullCommand extends Command
 
     public function handle()
     {
-        $this->gitPull();
+        //   $this->gitPull();
 
         $this->composerInstall();
 
@@ -61,12 +61,9 @@ class GitPullCommand extends Command
      */
     private function composerInstall()
     {
-        if ($this->option('composer')) {
+        if ($this->option('composer') || $this->option('full')) {
             echo 'Ejecutando composer install. Esto tomará un tiempo.' . PHP_EOL;
-            $this->runProcess(array('composer', 'install'), null);
-
-        } else {
-            echo 'Ejecutada version rápida. Usa el argumento "--full" para la versión completa.' . PHP_EOL;
+            $this->runProcess(array('php', 'vendor/composer/composer/bin/composer', 'install'), null);
         }
     }
 
@@ -75,9 +72,12 @@ class GitPullCommand extends Command
      */
     private function optimizaciones()
     {
-        if (!config('app.debug')) {
-            Artisan::call('route:cache');
-        }
+        if ($this->option('optimize') || $this->option('full'))
+            if (!config('app.debug')) {
+                Artisan::call('route:cache');
+            } else {
+                echo 'Debug activado. No se optimizará' . PHP_EOL;
+            }
     }
 
     /**
