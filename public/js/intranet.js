@@ -1,7 +1,7 @@
 function tinymce_init_callback(editor) {
     editor.remove();
     editor = null;
-
+    tinyMCE.remove();
     tinymce.init({
         menubar: false,
         selector: 'textarea.richTextBox',
@@ -19,7 +19,9 @@ function tinymce_init_callback(editor) {
         toolbar: 'styleselect bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table youtube giphy | code',
         convert_urls: false,
         image_caption: true,
-        image_title: true,
-
+        image_title: true
     });
+
+    /*truco para evitar un posible bug de google chrome, aunque pesa sobre la validación */
+    document.getElementsByClassName("richTextBox")[0].removeAttribute('required');
 }
