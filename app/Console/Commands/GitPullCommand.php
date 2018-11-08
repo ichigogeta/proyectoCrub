@@ -6,6 +6,14 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Process\Process;
 
+putenv("COMPOSER_HOME=" . base_path() . '../.config/composer');
+require_once base_path('vendor/composer/composer/src/Composer/Console/Application.php');
+require_once base_path('vendor/composer/composer/src/Composer/Command/UpdateCommand.php');
+
+use Composer\Console\Application;
+use Composer\Command\UpdateCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+
 class GitPullCommand extends Command
 {
     /**
@@ -37,7 +45,7 @@ class GitPullCommand extends Command
     {
         $this->gitPull();
 
-        $this->composerInstall();
+        $this->ComposerTrick();
 
         $this->optimizaciones();
     }
@@ -100,5 +108,40 @@ class GitPullCommand extends Command
         });
     }
 
+
+    private function ComposerTrick()
+    {
+        if (!$this->option('composer') && !$this->option('full'))
+            return;
+
+        //Configuration
+        //set_time_limit(100);
+        //ini_set('memory_limit', -1);  //could be forbidden on server
+
+        $args = array('command' => 'install');
+
+        $input = new ArrayInput($args);
+        //Create the application and run it with the commands
+        $application = new Application();
+        $application->setAutoExit(false);
+        $application->setCatchExceptions(false);
+        try {
+            //Running commdand php.ini allow_url_fopen=1 && proc_open() function available
+            $exitCode = $application->run($input);
+        } catch (\Exception $e) {
+            $exitCode = 1;
+            echo 'Error: ' . $e->getMessage() . "\n";
+        }
+
+        //Result message
+        if ($exitCode == 0) {
+            echo "Finalizado adecuadamente";
+        } elseif ($exitCode == 2) {
+            echo "Composer falló por problemas de dependencias";
+        } else {
+            echo "Composer ha fallado por un error";
+        }
+
+    }
 
 }
