@@ -16,12 +16,19 @@ function tinymce_init_callback(editor) {
                 $('#upload_file').trigger('click');
             }
         },
-        toolbar: 'styleselect bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table youtube giphy | code',
+        toolbar: 'styleselect bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table youtube giphy | visualblocks code',
         convert_urls: false,
         image_caption: true,
-        image_title: true
+        image_title: true,
+        table_default_styles: {
+            'border-collapsed': 'collapse',
+            'width': '100%'
+        },
+        table_responsive_width: true
+
     });
 
+    //visualblocks y otros plugins tienen el nombre cambiado.
     /*truco para evitar un posible bug de google chrome, aunque pesa sobre la validación */
     document.getElementsByClassName("richTextBox")[0].removeAttribute('required');
 }
