@@ -21,7 +21,7 @@ class GitPullCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'xerintel:pull {--force} {--n|no} {--c|composer} {--o|optimize} {--f|full}';
+    protected $signature = 'xerintel:pull {--force} {--s|skip} {--c|composer} {--o|optimize} {--f|full}';
 
     /**
      * The console command description.
@@ -45,7 +45,7 @@ class GitPullCommand extends Command
     {
         $this->gitPull();
 
-        $this->ComposerTrick();
+        $this->composerInstall();
 
         $this->optimizaciones();
     }
@@ -55,7 +55,7 @@ class GitPullCommand extends Command
      */
     private function gitPull()
     {
-        if ($this->option('force')) {
+        if ($this->option('skip')) {
             return;
         }
 
@@ -65,17 +65,6 @@ class GitPullCommand extends Command
             $this->runProcess(array('git', 'reset', '--hard', 'origin/master'));
         } else {
             $this->runProcess(array('git', 'pull'));
-        }
-    }
-
-    /**
-     * Si se especificó, ejecutara composer install
-     */
-    private function composerInstall()
-    {
-        if ($this->option('composer') || $this->option('full')) {
-            echo 'Ejecutando composer install. Esto tomará un tiempo.' . PHP_EOL;
-            $this->runProcess(array('php', 'vendor/composer/composer/bin/composer', 'install'), null);
         }
     }
 
@@ -113,8 +102,10 @@ class GitPullCommand extends Command
         });
     }
 
-
-    private function ComposerTrick()
+    /**
+     * Composer install en producción
+     */
+    private function composerInstall()
     {
         if (!$this->option('composer') && !$this->option('full'))
             return;
@@ -123,13 +114,19 @@ class GitPullCommand extends Command
         //set_time_limit(100);
         //ini_set('memory_limit', -1);  //could be forbidden on server
 
-        $args = array('command' => 'install');
+        $args = array('command' => 'install',
+            '--no-dev' => true,
+            '--optimize-autoloader' => true,
+            '--no-suggest' => true
+        );
 
         $input = new ArrayInput($args);
+
         //Create the application and run it with the commands
         $application = new Application();
         $application->setAutoExit(false);
         $application->setCatchExceptions(false);
+
         try {
             //Running commdand php.ini allow_url_fopen=1 && proc_open() function available
             $exitCode = $application->run($input);
