@@ -12,3 +12,5 @@ git config --global user.email "proyectos@xerintel.es"
 git config --global user.name "Xerintel Proyectos"
 composer install --no-dev
 php artisan xerintel:install
+
+echo "Fin del script."
