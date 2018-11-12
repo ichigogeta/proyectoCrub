@@ -21,7 +21,7 @@ class GitPullCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'xerintel:pull {--force} {--c|composer} {--o|optimize} {--f|full}';
+    protected $signature = 'xerintel:pull {--force} {--n|no} {--c|composer} {--o|optimize} {--f|full}';
 
     /**
      * The console command description.
@@ -56,6 +56,10 @@ class GitPullCommand extends Command
     private function gitPull()
     {
         if ($this->option('force')) {
+            return;
+        }
+
+        if ($this->option('force')) {
             echo('Pull Sobreescribiendo cambios no guardados e ignorados' . PHP_EOL);
             $this->runProcess(array('git', 'fetch', 'origin', 'master'));
             $this->runProcess(array('git', 'reset', '--hard', 'origin/master'));
@@ -83,6 +87,7 @@ class GitPullCommand extends Command
         if ($this->option('optimize') || $this->option('full'))
             if (!config('app.debug')) {
                 Artisan::call('route:cache');
+                Artisan::call('view:clear');
             } else {
                 echo 'Debug activado. No se optimizará' . PHP_EOL;
             }
