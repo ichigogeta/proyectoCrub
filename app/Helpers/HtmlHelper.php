@@ -53,6 +53,7 @@ class HtmlHelper
      * Crea url con slug para las noticias/blog
      *
      * @param \App\Post $post
+     * @deprecated Es mejor usar el accesor $post->url
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string
      */
     public static function postURL($post)
