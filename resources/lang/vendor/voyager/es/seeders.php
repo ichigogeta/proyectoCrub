@@ -58,7 +58,7 @@ return [
         'bread' => 'BREAD',
         'categories' => 'Categorías',
         'compass' => 'Compass',
-        'dashboard' => 'Dashboard',
+        'dashboard' => 'Tablero',
         'database' => 'Base de Datos',
         'media' => 'Media',
         'menu_builder' => 'Constructor de Menú',
@@ -70,7 +70,7 @@ return [
         'users' => 'Usuarios',
     ],
     'roles' => [
-        'admin' => 'Administrador',
+        'admin' => 'Admin',
         'user' => 'Usuario Normal',
     ],
     'settings' => [
