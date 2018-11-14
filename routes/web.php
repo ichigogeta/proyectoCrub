@@ -25,8 +25,14 @@ Route::group(['prefix' => 'intranet'], function () {
 });
 
 
-
 Auth::routes(); //Rutas de login sin direccionarte a la intranet y con registro público
+
+
+/* Multilenguaje
+ * Tendrás de descomentarme de app/http/kernel.php
+ */
+//Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en|es');
+
 
 /*
 Route::get('/home', 'HomeController@index')->name('home');
