@@ -74,12 +74,18 @@ class GitPullCommand extends Command
     private function optimizaciones()
     {
         if ($this->option('optimize') || $this->option('full'))
+
             if (!config('app.debug')) {
+                echo 'Comenzada la optimización' . PHP_EOL;
+
                 Artisan::call('route:cache');
                 Artisan::call('view:clear');
+
+                echo 'Finalizada la optimización' . PHP_EOL;
             } else {
                 echo 'Debug activado. No se optimizará' . PHP_EOL;
             }
+
     }
 
     /**
