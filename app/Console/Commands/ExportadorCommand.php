@@ -26,7 +26,7 @@ class ExportadorCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Exporta Bread, tabla y menu de la tabla indicada';
 
     /**
      * Create a new command instance.

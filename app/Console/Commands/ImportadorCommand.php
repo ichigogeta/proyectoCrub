@@ -18,7 +18,7 @@ class ImportadorCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Importador de Breads desde fichero';
 
     /**
      * Create a new command instance.
