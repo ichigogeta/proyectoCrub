@@ -20,20 +20,12 @@ Route::post('/contacto', 'ContactoController@send');
 Route::get('/pagina/{slug}', 'PageController@read');
 
 
-Route::group(['prefix' => 'intranet'], function () {
-    Voyager::routes();
-});
-
-
-Auth::routes(); //Rutas de login sin direccionarte a la intranet y con registro público
-
+Auth::routes(); //Login y registro público. Comentar si no se necesita.
 
 /* Multilenguaje
  * Tendrás de descomentarme de app/http/kernel.php
- */
-//Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en|es');
-
-
-/*
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en|es');
 */
+Route::group(['prefix' => 'intranet'], function () {
+    Voyager::routes(); //Rutas de la intranet
+});
