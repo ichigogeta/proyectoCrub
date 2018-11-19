@@ -17,7 +17,7 @@
                 "message": "Este sitio web utiliza cookies para ofrecer el 100% de su funcionalidad.",
                 "dismiss": "Entendido",
                 "link": "Más información",
-                "href": "http://politicadecookies.com/cookies.php"
+                "href": "{{url('/pagina/aviso-legal-y-cookies')}}"
             }
         })
     });
