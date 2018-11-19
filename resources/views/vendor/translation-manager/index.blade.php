@@ -374,7 +374,7 @@
     </script>
 @stop
 
-@section('page_title', 'mititulo')
+@section('page_title', 'Traducciones')
 
 @section('page_header')
     <h1 class="page-title">
@@ -405,8 +405,10 @@
          </header>
     --}}
     <div class="container-fluid">
+        {{--
         <p>Warning, translations are not visible until they are exported back to the app/lang file, using <code>php
                 artisan translation:export</code> command or publish button.</p>
+        --}}
         <div class="alert alert-success success-import" style="display:none;">
             <p>Done importing, processed <strong class="counter">N</strong> items! Reload this page to refresh the
                 groups!</p>
