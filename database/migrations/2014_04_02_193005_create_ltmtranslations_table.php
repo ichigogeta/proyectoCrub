@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateLtmTranslationsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,6 +13,7 @@ class CreateLtmTranslationsTable extends Migration
     public function up()
     {
         Schema::create('ltm_translations', function (Blueprint $table) {
+            $table->collation = 'utf8mb4_bin';
             $table->increments('id');
             $table->integer('status')->default(0);
             $table->string('locale');
