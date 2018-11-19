@@ -1,0 +1,37 @@
+<?php
+
+return array(
+    'page_title' => 'Translations',
+    'module_title' => 'Translation manager',
+    'module_warning' => 'Las traducciones se guardan como borrador automaticamente, al publicar será reemplazadas. Si añades un nuevo idioma Comunicanoslo para enlazarlo',
+    'back' => 'Back',
+    'importing_done' => 'Done importing, processed <strong class="counter">N</strong> items! Reload this page to refresh the groups!',
+    'search_done' => 'Done searching for translations, found <strong class="counter">N</strong> items!',
+    'publishing_one_done' => 'Done publishing the translations for group ',
+    'publishing_all_done' => 'Done publishing the translations for all group!',
+    'append' => 'Append new translations',
+    'replace' => 'Replace existing translations',
+    'import_btn' => 'Import groups',
+    'find_data_confirm' => 'Are you sure you want to scan you app folder? All found translation keys will be added to the database.',
+    'find_files_btn' => 'Find translations in files',
+    'publish_confirm' => 'Are you sure you want to publish the translations group ',
+    'publish_confirm2' => 'This will overwrite existing language files.',
+    'publish_btn' => 'Publish translations',
+    'choose_a_group' => 'Choose a group to display the group translations. If no groups are visisble, make sure you have run
+                    the migrations and imported the translations.',
+    'add_a_group' => 'Enter a new group name and start edit translations in that group',
+    'add_and_edit' => 'Add and edit keys',
+    'add_new_keys' => 'Add new keys to this group',
+    'add_new_keys_placeholder' => 'Add 1 key per line, without the group prefix',
+    'add_keys' => 'Add keys',
+    'supported_locales' => 'Supported locales',
+    'current_supported_locales' => 'Current supported locales',
+    'enter_translation' => 'Enter translation',
+    'delete_confirm' => 'Are you sure you want to delete the translations for ',
+    'new_locale_key' => 'Enter new locale key',
+    'add_new_locale' => 'Add new locale',
+    'export_all' => 'Export all translations',
+    'publish_all_confirm' => 'Are you sure you want to publish all translations group? This will overwrite existing language files.',
+    'publish_all' => 'Publish all',
+
+);

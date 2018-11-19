@@ -11,7 +11,12 @@ echo "¿Está el debug en false?"
 alias php71="/opt/cpanel/ea-php71/root/usr/bin/php"
 git config --global user.email "proyectos@xerintel.es"
 git config --global user.name "Xerintel Proyectos"
-composer install --no-dev
+
+if [ ! -f ./composer.phar ]; then
+    wget https://getcomposer.org/composer.phar
+fi
+
+php71 composer.phar install --no-dev
 php71 artisan xerintel:install
 
 
