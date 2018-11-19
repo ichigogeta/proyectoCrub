@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use TCG\Voyager\Models\Permission;
+use TCG\Voyager\Models\Role;
 
 class PermissionCommand extends Command
 {
@@ -49,10 +50,14 @@ class PermissionCommand extends Command
             return;
         }
 
+
+        $role = Role::where('name', 'admin')->firstOrFail();
+
         $myperm = new Permission();
         $myperm->key = $this->argument('name');
         $myperm->save();
-        echo 'Creado el nodo: ' . $this->argument('name') . PHP_EOL;
+        $role->permissions()->attach($myperm->id);
 
+        echo 'Creado el nodo: ' . $this->argument('name') . PHP_EOL;
     }
 }
