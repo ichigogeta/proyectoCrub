@@ -53,10 +53,14 @@ class PermissionCommand extends Command
 
         $role = Role::where('name', 'admin')->firstOrFail();
 
-        $myperm = new Permission();
-        $myperm->key = $this->argument('name');
-        $myperm->save();
-        $role->permissions()->attach($myperm->id);
+        $permission = new Permission();
+        $permission->key = $this->argument('name');
+        if ($this->argument('table')) {
+            $this->info('Permiso asociado a la tabla: ' . $this->argument('table'));
+            $permission->table_name = $this->argument('table');
+        }
+        $permission->save();
+        $role->permissions()->attach($permission->id);
 
         echo 'Creado el nodo: ' . $this->argument('name') . PHP_EOL;
     }
