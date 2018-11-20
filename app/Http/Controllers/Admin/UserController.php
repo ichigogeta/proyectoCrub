@@ -11,19 +11,19 @@ class UserController extends VoyagerBaseController
 {
     public function update(Request $request, $id)
     {
-        $this->youShallNotPass($request);
+        $this->onlyAdminCanSetAdmin($request);
         return parent::update($request, $id);
     }
 
     public function store(Request $request)
     {
-        $this->youShallNotPass($request);
+        $this->onlyAdminCanSetAdmin($request);
         return parent::store($request);
     }
 
-    private function youShallNotPass($request)
+    private function onlyAdminCanSetAdmin($request)
     {
-        dd(Auth::user());
+
         if (Auth::user()->role_id != 1) //no es admin
         {
             if ($request->get('role_id') == 1)
