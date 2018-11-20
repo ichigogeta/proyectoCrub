@@ -20,7 +20,7 @@ return [
     | Avisos, formularío de contacto y otras necesidades.
     |
     */
-    'mail_cliente' => 'cliente@example.com',
+    'mail_cliente' => env('MAIL_TEST_ACCOUNT', 'cliente@example.com'),
 
     /*
     |--------------------------------------------------------------------------
