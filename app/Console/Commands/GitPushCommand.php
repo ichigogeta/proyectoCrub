@@ -44,11 +44,12 @@ class GitPushCommand extends Command
                 $commit = 'Commit remoto: ' . date('d-m-Y H:i:s');
             echo('Realizando commit y push de: ' . $commit . PHP_EOL);
 
+            $this->runProcess('git config user.email "proyectos@xerintel.es"');
+            $this->runProcess('git config user.name "Xerintel Proyectos"');
+
             $this->runProcess(array('git', 'add', '-A'));
             $this->runProcess(array('git', 'commit', '-m', $commit));
             $this->runProcess(array('git', 'push'));
-
-
         }
 
     }
