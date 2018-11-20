@@ -1,5 +1,7 @@
 ## Acerca de Laravel(Xerintel)
-[Laravel](https://laravel.com/docs/5.5/)(Framework) y [Voyager](https://voyager.readme.io/docs)(intranet). 
+[Laravel](https://laravel.com/docs/5.7/)(Framework) y [Voyager](https://voyager.readme.io/docs)(intranet).  
+Este Readme.md es introductorio y no se garantiza que esté adecuadamente actualizado.  
+Es preferible que consultes el confluence de la empresa.
 
 ###¿Qué ofrecen Laravel y Voyager?
 Rutas con  php, no más .htaccess  
@@ -13,9 +15,6 @@ Menor uso de phpMyadmin.
 Posibilidad de autocompletado en el IDE.  
 Todos los ficheros sigue siendo .php, menos los .js .css .png pero ya me entendeis.
 
-##Requisitos
-XAMPP, Composer, Git, Nodejs y un IDE de categoría.
-
 ##Instalación
 Descomprime/clona el proyecto base.  
 Copia el fichero **.env.example** como **.env** y ábrelo.  
@@ -27,7 +26,6 @@ Ahora instalamos la intranet:
 ```
 php artisan xerintel:install
 ```
-**OJO**, es posible que de error la primera vez, funcionará al segundo intento.
 
 Si necesitas más usuarios:
 ```
@@ -39,11 +37,11 @@ php artisan voyager:admin your@email.com --create
 ## Configuraciones Básicas
 Echa un ojo a tu fichero de rutas **web.php**, verás algo así
 ```
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes();
 });
 ```
-Reemplaza **admin** por tu prefijo deseado.
+Reemplaza **intranet** por tu prefijo deseado.
 
 ###Creando tablas
 Cuidado con los plurales y singulares. El convenio dicta que las tablas tienen nombres en plural y los modelos en singular.  
@@ -74,18 +72,17 @@ El CRUD de toda la vida, con otro nombre y casi 100% automático.
 ##Publicar web
 Es necesario PHP 7.1+
 
-1)Sube la base de datos.  
-2)Sube/clona el proyecto a la carpeta privada. Sube un zip no la carpeta al FTP.  
-3)Copia las credenciales al fichero .env y configuralo como production.  
-4)Otorga permisos.  
-5)Enlace simbólico a la carpeta public de laravel con la de cPanel.  
-6)Abre la intranet, si tiene errores te avisará.
+1) Sube la base de datos.  
+2) Sube/clona el proyecto a la carpeta privada. O sube un zip en la carpeta al FTP y descomprimelo si todo falla.  
+3) Recuerda usar el .env lo menos posible, para el servidor esas configuraciones deberian estar en la carpeta config.  
+4) Sube los ficheros de storage/app via FTP porque estos no van en control de versión  
+5) Cambia la url a la del proyecto.  
+6) Enlace simbólico a la carpeta public de laravel con la de cPanel.  
+7) Abre la intranet, si tiene errores o no sale nada, mira en storage/logs/laravel.log
 
-Nota, sobre permisos:  
-```
-chmod -R o+w milaravel/storage
-```
-Si falla o sale en blanco, mira **storage/logs/laravel.log** y encontrarás al culpable <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+
+
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
