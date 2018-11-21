@@ -23,17 +23,15 @@
                                 @foreach ($results as $result)
                                     <li class="dd-item" data-id="{{ $result->getKey() }}">
                                         <div class="dd-handle"
-                                             @if($display_column == 'img')
-                                             style="background-image: url('{{Voyager::image($result->{$display_column}) }}'); height: 120px; background-size: contain; background-repeat: no-repeat;"
+                                             @if($result->sortAsImage)
+                                             style="background-image: url('{{Voyager::image($result->{$display_column})}}'); height: 120px; background-size: contain; background-repeat: no-repeat;"
                                                 @endif
                                         >
-
-                                            @if($display_column == 'img')
-                                                <span></span>
-                                            @else
-                                                <span> {{$result->{$display_column} }}</span>
-                                            @endif
-
+                                                <span>
+                                                    @if(!$result->sortAsImage)
+                                                        {{$result->{$display_column} }}
+                                                    @endif
+                                                </span>
                                         </div>
                                     </li>
                                 @endforeach
