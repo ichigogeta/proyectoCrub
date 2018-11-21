@@ -173,5 +173,21 @@ class MenuItemsTableSeeder extends Seeder
                 'order'      => 14,
             ])->save();
         }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Traducciones',
+            'url'     => '/intranet/translations',
+            'route'   => null,
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-documentation',
+                'color'      => null,
+                'parent_id'  => $toolsMenuItem->id,
+                'order'      => 15,
+            ])->save();
+        }
     }
 }

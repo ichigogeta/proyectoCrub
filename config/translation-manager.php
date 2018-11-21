@@ -11,10 +11,10 @@ return [
     |
     */
     'route' => [
-        'prefix' => 'translations',
+        'prefix' => 'intranet/translations',
         'middleware' => [
             'web',
-            'auth',
+            'admin.user',
         ],
     ],
 

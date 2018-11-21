@@ -1,5 +1,10 @@
-@extends('intranet.translations.master')
+@php
+    if(!auth()->user()->hasPermission('browse_translations')) {
+    die('Acción prohibida detectada');
+    }
+@endphp
 
+@extends('intranet.translations.master')
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
