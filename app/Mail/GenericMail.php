@@ -10,33 +10,36 @@ class GenericMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mail;
+    public $datos, $vista, $emailDestino, $nombreDestinatario, $titulo;
 
     /**
      * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Email Genérico para construir en controladores.
      *
      * @param $emailDestino
      * @param $nombreDestinatario
      * @param $titulo
      * @param $vista
      * @param $datos
+     * @return void
+     */
+    public function __construct($emailDestino, $nombreDestinatario, $titulo, $vista, $datos = null)
+    {
+        $this->datos = $datos;
+        $this->titulo = $titulo;
+        $this->vista = $vista;
+        $this->emailDestino = $emailDestino;
+        $this->nombreDestinatario = $nombreDestinatario;
+    }
+
+    /**
+     * Email Genérico para construir en controladores.
      * @return GenericMail
      */
-    public function build($emailDestino, $nombreDestinatario, $titulo, $vista, $datos = null)
+    public function build()
     {
-        return $this->view($vista, $datos)
-            ->to($emailDestino, $nombreDestinatario)
-            ->subject($titulo)
+        return $this->view($this->vista, $this->datos)
+            ->to($this->emailDestino, $this->nombreDestinatario)
+            ->subject($this->titulo)
             ->from(config('_xerintel.app_mail'), config('_xerintel.app_mail_name'));
     }
 }
