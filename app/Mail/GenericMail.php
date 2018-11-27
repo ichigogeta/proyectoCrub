@@ -32,7 +32,7 @@ class GenericMail extends Mailable
      * @param $datos
      * @return GenericMail
      */
-    public function build($emailDestino, $nombreDestinatario, $titulo, $vista, $datos)
+    public function build($emailDestino, $nombreDestinatario, $titulo, $vista, $datos = null)
     {
         return $this->view($vista, $datos)
             ->to($emailDestino, $nombreDestinatario)
