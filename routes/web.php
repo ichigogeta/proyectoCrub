@@ -29,3 +29,8 @@ Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en
 Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes(); //Rutas de la intranet
 });
+
+/* Logins sociales
+Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|google');
+Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|google');
+ */
