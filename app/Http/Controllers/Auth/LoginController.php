@@ -6,7 +6,7 @@ use Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-//use Socialite;
+use Socialite;
 use Carbon\Carbon;
 
 class LoginController extends Controller
@@ -61,7 +61,7 @@ class LoginController extends Controller
     public function handleProviderCallback($social)
     {
         if (!request()->get('code'))
-            return null; //El usuario ha rechazado el login
+            return $this->defaultRedirect(); //El usuario ha rechazado el login
 
         $userSocial = Socialite::driver($social)->user();
         $user = User::where('email', $userSocial->email)->first();
@@ -84,12 +84,23 @@ class LoginController extends Controller
             return $this->authAndRedirect($user);
         }
 
+        return $this->defaultRedirect();
     }
 
-    public function authAndRedirect($user)
+    private function authAndRedirect($user)
     {
         Auth::login($user);
         return redirect()->action('IndexController@index');
     }
+
+    /**
+     * En caso de que los logins sociales fallen, redirigir con esto.
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    private function defaultRedirect()
+    {
+        return redirect()->action('IndexController@index');
+    }
+
 
 }

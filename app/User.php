@@ -26,4 +26,10 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        if (!$this->provider) //provider se usa en logins sociales
+            $this->notify(new ResetPasswordNotification($token));
+    }
 }
