@@ -60,6 +60,9 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($social)
     {
+        if (!request()->get('code'))
+            return null; //El usuario ha rechazado el login
+
         $userSocial = Socialite::driver($social)->user();
         $user = User::where('email', $userSocial->email)->first();
 
