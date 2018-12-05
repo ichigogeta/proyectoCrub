@@ -45,7 +45,7 @@ class LoginController extends Controller
     /**
      * Handle Social login request
      *
-     * @return response
+     * @return \Illuminate\Http\Response
      */
     public function socialLogin($social)
     {
@@ -56,7 +56,7 @@ class LoginController extends Controller
     /**
      * Obtain the user information from Social Logged in.
      * @param $social
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function handleProviderCallback($social)
     {
@@ -87,6 +87,10 @@ class LoginController extends Controller
         return $this->defaultRedirect();
     }
 
+    /**
+     * @param $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     private function authAndRedirect($user)
     {
         Auth::login($user);
