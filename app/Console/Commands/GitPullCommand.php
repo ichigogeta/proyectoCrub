@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Process\Process;
 
-putenv("COMPOSER_HOME=" . base_path() . '../.config/composer');
+putenv("COMPOSER_HOME=" . base_path() . '/../.config/composer');
 require_once base_path('vendor/composer/composer/src/Composer/Console/Application.php');
 require_once base_path('vendor/composer/composer/src/Composer/Command/UpdateCommand.php');
 
@@ -43,6 +43,8 @@ class GitPullCommand extends Command
 
     public function handle()
     {
+        set_time_limit(600); //10 minutos debería ser suficiente para hacerlo 2 veces
+
         $this->gitPull();
 
         $this->composerInstall();
@@ -117,7 +119,6 @@ class GitPullCommand extends Command
             return;
 
         //Configuration
-        //set_time_limit(100);
         //ini_set('memory_limit', -1);  //could be forbidden on server
 
         $args = array('command' => 'install',
