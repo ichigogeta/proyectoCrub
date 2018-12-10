@@ -6,7 +6,7 @@
 <body id="app-layout">
 
 @include('layouts.navbar')
-@include('layouts.errors')
+@include('flash.errors')
 @include('flash.normal')
 
 <div id="container" class="container">
