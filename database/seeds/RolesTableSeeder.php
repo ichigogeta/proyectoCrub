@@ -13,7 +13,7 @@ class RolesTableSeeder extends Seeder
         $role = Role::firstOrNew(['name' => 'admin']);
         if (!$role->exists) {
             $role->fill([
-                'display_name' => __('voyager::seeders.roles.admin'),
+                'display_name' => 'Xerintel',
             ])->save();
         }
 
@@ -24,10 +24,10 @@ class RolesTableSeeder extends Seeder
             ])->save();
         }
 
-        $role = Role::firstOrNew(['name' => 'client']);
+        $role = Role::firstOrNew(['name' => 'administrador']);
         if (!$role->exists) {
             $role->fill([
-                'display_name' => 'Cliente',
+                'display_name' => 'Administrador',
             ])->save();
         }
     }
