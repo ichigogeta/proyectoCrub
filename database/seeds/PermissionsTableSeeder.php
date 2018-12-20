@@ -16,11 +16,13 @@ class PermissionsTableSeeder extends Seeder
             'browse_database',
             'browse_media',
             'browse_compass',
+            'usuario_avanzado',
+            'usuario_admin'
         ];
 
         foreach ($keys as $key) {
             Permission::firstOrCreate([
-                'key'        => $key,
+                'key' => $key,
                 'table_name' => null,
             ]);
         }
