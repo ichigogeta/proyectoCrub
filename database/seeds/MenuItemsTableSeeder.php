@@ -169,7 +169,7 @@ class MenuItemsTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-settings',
                 'color'      => null,
-                'parent_id'  => null,
+                'parent_id'  => $toolsMenuItem->id,
                 'order'      => 14,
             ])->save();
         }
