@@ -29,6 +29,4 @@ function tinymce_init_callback(editor) {
     });
 
     //visualblocks y otros plugins tienen el nombre cambiado.
-    /*truco para evitar un posible bug de google chrome, aunque pesa sobre la validación */
-    document.getElementsByClassName("richTextBox")[0].removeAttribute('required');
 }

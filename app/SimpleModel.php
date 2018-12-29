@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 abstract class SimpleModel extends Model
 {
-    //public $timestamps = false; //false significa no usar fechas de creacion y modificacion en la tabla. default=true.
+    //public $timestamps = false; //false significa no usar fechas de creación y modificación en la tabla. default=true.
     //protected $table = 'mitabla';//Usar si la tabla tiene un nombre diferente al del modelo
 
     /**
