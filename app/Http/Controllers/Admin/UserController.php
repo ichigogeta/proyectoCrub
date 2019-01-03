@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
@@ -19,6 +20,15 @@ class UserController extends VoyagerBaseController
     {
         $this->onlyAdminCanSetAdmin($request);
         return parent::store($request);
+    }
+
+    public function suplantar($id)
+    {
+        if (Auth::user()->role_id == 1) {
+            Auth::logout();
+            Auth::loginUsingId($id);
+        }
+        redirect()->route('voyager.dashboard');
     }
 
     private function onlyAdminCanSetAdmin($request)

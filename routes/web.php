@@ -27,6 +27,9 @@ Auth::routes(); //Login y registro público. Comentar si no se necesita.
 Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en|es');
 */
 Route::group(['prefix' => 'intranet'], function () {
+    Route::group(['middleware' => 'admin.user'], function () {
+        Route::get('/users/suplantar/{id}', 'UserController@suplantar')->name('intranet.user.suplantar');
+    });
     Voyager::routes(); //Rutas de la intranet
 });
 
