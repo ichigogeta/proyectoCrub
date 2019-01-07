@@ -181,7 +181,7 @@
 
 
                                         <td class="no-sort no-click" id="bread-actions">
-                                            @if($user->role_id == 1)
+                                            @if($currentUser->role_id == 1)
                                                 <a href="{{route('intranet.user.suplantar', ['id' => $data->id])}}"
                                                    title="Suplantar" class="btn btn-sm btn-primary pull-right edit">
                                                     <i class="fas fa-user-secret"></i>

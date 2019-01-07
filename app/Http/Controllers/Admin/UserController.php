@@ -28,7 +28,7 @@ class UserController extends VoyagerBaseController
             Auth::logout();
             Auth::loginUsingId($id);
         }
-        redirect()->route('voyager.dashboard');
+        return redirect()->route('voyager.dashboard');
     }
 
     private function onlyAdminCanSetAdmin($request)
