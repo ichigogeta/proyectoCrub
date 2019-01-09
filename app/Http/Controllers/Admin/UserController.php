@@ -25,10 +25,29 @@ class UserController extends VoyagerBaseController
     public function suplantar($id)
     {
         if (Auth::user()->role_id == 1) {
+            $real_id = Auth::id();
             Auth::logout();
             Auth::loginUsingId($id);
+            session()->put('real_id', $real_id);
         }
         return redirect()->route('voyager.dashboard');
+    }
+
+    public function logout(Request $request)
+    {
+        if (session()->get('real_id')) {
+            $real_id = session()->get('real_id');
+            Auth::logout();
+            Auth::loginUsingId($real_id);
+            session()->forget('real_id');
+            return redirect()->route('voyager.dashboard');
+        } else {
+            Auth::logout();
+            $request->session()->invalidate();
+
+            return redirect('/');
+        }
+
     }
 
     private function onlyAdminCanSetAdmin($request)
