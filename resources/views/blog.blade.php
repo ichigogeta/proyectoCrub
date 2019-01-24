@@ -9,7 +9,7 @@
 
 @section('title')
     @parent
-    - Notícias
+    - Noticias
 @endsection
 
 @section('content')
