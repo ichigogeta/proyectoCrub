@@ -63,12 +63,14 @@ class LoginController extends Controller
         if (!request()->get('code'))
             return $this->defaultRedirect(); //El usuario ha rechazado el login
 
-        $userSocial = Socialite::driver($social)->user();
+        $userSocial = Socialite::with($social)->user();
         $user = User::where('email', $userSocial->email)->first();
 
         if ($user) {
             if ($user->provider == $social) {
                 return $this->authAndRedirect($user);
+            } else {
+                die('Estas intentando iniciar sesión via ' . $social . ' pero ya estas vinculado con ' . $user->provider);
             }
 
         } else {
