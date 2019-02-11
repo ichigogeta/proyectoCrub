@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,12 +23,14 @@ class UserController extends VoyagerBaseController
 
     public function suplantar($id)
     {
-        if (Auth::user()->role_id == 1) {
-            $real_id = Auth::id();
-            Auth::logout();
-            Auth::loginUsingId($id);
-            session()->put('real_id', $real_id);
-        }
+        $this->permissionCheck();
+        $target = $this->getTargetUser($id);
+
+        $real_id = Auth::id();
+        Auth::logout();
+        Auth::loginUsingId($id);
+        session()->put('real_id', $real_id);
+
         return redirect()->route('voyager.dashboard');
     }
 
@@ -50,7 +51,26 @@ class UserController extends VoyagerBaseController
 
     }
 
-    private function onlyAdminCanSetAdmin($request)
+    private function permissionCheck()
+    {
+        if (Auth::user()->role_id != 1)
+            $this->detectadaAccionProhibida();
+
+    }
+
+    /**
+     * @param $id
+     * @return User|User[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
+    private function getTargetUser($id)
+    {
+        $target = User::findOrFail($id);
+        if ($target->role_id == 1)
+            $this->detectadaAccionProhibida();
+        return $target;
+    }
+
+    private function onlyAdminCanSetAdmin(Request $request)
     {
 
         if (Auth::user()->role_id != 1) //no es admin
