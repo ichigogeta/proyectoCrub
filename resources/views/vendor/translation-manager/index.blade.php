@@ -4,7 +4,7 @@
     }
 @endphp
 
-@extends('voyager::master')
+@extends('vendor.translation-manager.master')
 
 @section('javascript')
     @include('vendor.translation-manager.javascript')
