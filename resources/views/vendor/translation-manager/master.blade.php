@@ -68,7 +68,7 @@ if (starts_with(Auth::user()->avatar, 'http://') || starts_with(Auth::user()->av
 <div class="app-container">
     <div class="fadetoblack visible-xs"></div>
     <div class="row content-container">
-        @include('intranet.translations.navbar')
+        @include('vendor.translation-manager.navbar')
         @include('voyager::dashboard.sidebar')
         <script>
             (function(){
