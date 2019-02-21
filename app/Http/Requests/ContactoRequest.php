@@ -47,7 +47,7 @@ class ContactoRequest extends FormRequest
             'email' => 'Email',
             'cuerpo' => 'Observaciones',
             'condiciones' =>'He leido y acepto la política de privacidad',
-            'compania' => 'Compañia',
+            'compania' => 'Compañía',
             'phone'=> 'Teléfono'
         ];
     }
