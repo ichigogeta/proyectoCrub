@@ -213,7 +213,7 @@ return [
     ],
 
     'additional_js' => [
-        'js/intranet.js',
+        'js/intranet.js?v=1',
     ],
 
     'googlemaps' => [
