@@ -1,7 +1,6 @@
 function tinymce_init_callback(editor) {
     editor.remove();
     editor = null;
-    tinyMCE.remove();
     tinymce.init({
         menubar: false,
         selector: 'textarea.richTextBox',
