@@ -17,7 +17,7 @@ class ContactoRequest extends FormRequest
     }
 
     /**
-     * Toma las normas de validaciÃ³n para esta Request.
+     * Toma las normas de validación para esta Request.
      *
      * @return array
      */
@@ -31,4 +31,25 @@ class ContactoRequest extends FormRequest
             'condiciones' => 'accepted',
         ];
     }
+    
+    /*
+    public function messages()
+    {
+        return [
+            'accepted' => 'El campo :attribute debe ser aceptado'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'nombre' => 'Nombre',
+            'email' => 'Email',
+            'cuerpo' => 'Observaciones',
+            'condiciones' =>'He leido y acepto la política de privacidad',
+            'compania' => 'Compañía',
+            'phone'=> 'Teléfono'
+        ];
+    }
+    */
 }
