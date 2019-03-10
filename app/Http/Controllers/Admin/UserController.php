@@ -34,23 +34,6 @@ class UserController extends VoyagerBaseController
         return redirect()->route('voyager.dashboard');
     }
 
-    public function logout(Request $request)
-    {
-        if (session()->get('real_id')) {
-            $real_id = session()->get('real_id');
-            Auth::logout();
-            Auth::loginUsingId($real_id);
-            session()->forget('real_id');
-            return redirect()->route('voyager.dashboard');
-        } else {
-            Auth::logout();
-            $request->session()->invalidate();
-
-            return redirect('/');
-        }
-
-    }
-
     private function permissionCheck()
     {
         if (Auth::user()->role_id != 1)
