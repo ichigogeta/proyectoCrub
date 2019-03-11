@@ -10,6 +10,7 @@
             container: '.content-builder-container',
             snippetData: '{{asset('vendor/contentbuilder/assets/minimalist-blocks/snippetlist.html')}}',
             snippetPathReplace: ['assets/minimalist-blocks/', '{{url('/vendor/contentbuilder/assets/minimalist-blocks/')}}/'],
+            iconselect: '{{asset('vendor/contentbuilder/assets/ionicons/icons.html')}}',
             cellFormat: '<div class="col-md-12"></div>',
             rowFormat: '<div class="row"></div>',
             framework: 'bootstrap'
