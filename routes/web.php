@@ -28,7 +28,6 @@ Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en
 */
 Route::group(['prefix' => 'intranet'], function () {
     Route::group(['middleware' => 'admin.user'], function () {
-        Route::get('/desconectar', 'UserController@logout')->name('intranet.logout');
         Route::get('/users/suplantar/{id}', 'UserController@suplantar')->name('intranet.user.suplantar');
     });
     Voyager::routes(); //Rutas de la intranet

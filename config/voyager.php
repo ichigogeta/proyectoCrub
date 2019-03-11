@@ -158,7 +158,7 @@ return [
                 'target_blank' => true,
             ],
             'Cerrar Sesión' => [
-                'route' => 'intranet.logout',
+                'route' => 'voyager.logout',
                 'icon_class' => 'voyager-power',
             ],
         ],
