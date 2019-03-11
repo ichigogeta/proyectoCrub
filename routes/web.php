@@ -29,6 +29,7 @@ Route::get('locale/{locale}','LanguageController@setLocale')->where('locale','en
 Route::group(['prefix' => 'intranet'], function () {
     Route::group(['middleware' => 'admin.user'], function () {
         Route::get('/users/suplantar/{id}', 'UserController@suplantar')->name('intranet.user.suplantar');
+        Route::any('/cms/imagesave', 'Admin\VoyagerController@saveImage')->name('intranet.contentbuilder.saveimage');
     });
     Voyager::routes(); //Rutas de la intranet
 });
