@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -25,7 +26,7 @@ class VoyagerController extends \TCG\Voyager\Http\Controllers\VoyagerController
     public function saveImage(Request $request)
     {
         //header('Cache-Control: no-cache, must-revalidate');// no necesario?
-        Log::debug($request->all());
+        //Log::debug($request->all());
         //Specify url path
         $path = storage_path('/app/public/contentbuilder_uploads/');
 
