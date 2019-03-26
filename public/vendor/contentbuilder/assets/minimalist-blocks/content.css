@@ -533,6 +533,11 @@ img.bordered {border: #ccc 1px solid;}
     .size-220 span {font-size:80px !important}    
 }
 
+@media all and (max-width: 1024px) {
+    .margin-left-1024-reset {margin-left:0px !important;}
+    .margin-right-1024-reset {margin-right:0px !important;}
+}
+
 /**********************************
     Title Styles
 ***********************************/
