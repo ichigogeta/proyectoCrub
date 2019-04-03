@@ -8,7 +8,7 @@
     var mainLang = 'es';
     var currentLang = mainLang;
     var bodyJsonInput = $('#body_i18n');
-    var bodyValues = JSON.parse(bodyJsonInput.val());
+    var bodyValues = '';
     var multilenguaje = false;
     var submitEnabled = true;
     var nextLang;
@@ -27,18 +27,19 @@
     }
 
     jQuery(document).ready(function ($) {
-
-        obj = createContentbuilder();
-
         if ($('#body_i18n').length) {
             //es multilenguaje
+
+            var bodyValues = JSON.parse(bodyJsonInput.val())
+
             $('.form-edit-add').on('submit', function () {
                 bodyJsonInput.val(JSON.stringify(bodyValues));
             });
             multilenguaje = true;
             submitEnabled = false;
-
         }
+
+        obj = createContentbuilder(); //instancia el editor
 
         $('#btnViewSnippets').on('click', function () {
             obj.viewSnippets();
