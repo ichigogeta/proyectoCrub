@@ -129,6 +129,20 @@ class SettingsTableSeeder extends Seeder
                 'group'        => 'Admin',
             ])->save();
         }
+
+        /* personalizaciones */
+        $setting = $this->findSetting('admin.bg_color');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Color de fondo panel de la ventana de login'),
+                'value'        => 'rgb(168,207,81)',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 6,
+                'group'        => 'Admin',
+            ])->save();
+        }
+
     }
 
     /**
