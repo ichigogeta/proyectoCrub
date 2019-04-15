@@ -13,7 +13,7 @@ class PermissionCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'xerintel:perm {name} {table?}';
+    protected $signature = 'xerintel:permiso {name} {table?}';
 
     /**
      * The console command description.
