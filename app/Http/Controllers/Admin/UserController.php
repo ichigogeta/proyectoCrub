@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
 class UserController extends VoyagerBaseController
@@ -12,7 +13,9 @@ class UserController extends VoyagerBaseController
     public function update(Request $request, $id)
     {
         $this->onlyAdminCanSetAdmin($request);
-        return parent::update($request, $id);
+        $return = parent::update($request, $id);
+        $return->setTargetUrl(URL::previous());
+        return $return;
     }
 
     public function store(Request $request)
