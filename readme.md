@@ -77,8 +77,9 @@ Es necesario PHP 7.1+
 3) Recuerda usar el .env lo menos posible, para el servidor esas configuraciones deberian estar en la carpeta config.  
 4) Sube los ficheros de storage/app via FTP porque estos no van en control de versión  
 5) Cambia la url a la del proyecto.  
-6) Enlace simbólico a la carpeta public de laravel con la de cPanel.  
-7) Abre la intranet, si tiene errores o no sale nada, mira en storage/logs/laravel.log
+6) php artisan xerintel:repair.  
+7) Enlace simbólico a la carpeta public de laravel con la de cPanel.  
+8) Abre la intranet, si tiene errores o no sale nada, mira en storage/logs/laravel.log
 
 
 

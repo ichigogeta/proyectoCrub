@@ -17,7 +17,7 @@ if [ ! -f ./composer.phar ]; then
 fi
 
 php71 composer.phar install --no-dev
-php71 artisan xerintel:install
+php71 artisan xerintel:repair
 
 
 echo "Fin del script."

@@ -11,6 +11,6 @@ echo "¿Está el debug en false?"
 git config --global user.email "proyectos@xerintel.es"
 git config --global user.name "Xerintel Proyectos"
 composer install --no-dev
-php artisan xerintel:install
+php artisan xerintel:repair
 
 echo "Fin del script."
