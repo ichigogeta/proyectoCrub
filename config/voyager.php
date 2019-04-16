@@ -157,7 +157,7 @@ return [
                 'icon_class' => 'voyager-home',
                 'target_blank' => true,
             ],
-            'Cerrar SesiÃ³n' => [
+            'Cerrar Sesión' => [
                 'route' => 'voyager.logout',
                 'icon_class' => 'voyager-power',
             ],
@@ -213,6 +213,8 @@ return [
     ],
 
     'additional_js' => [
+        'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment-with-locales.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js',
         'js/intranet.js?v=1',
     ],
 
