@@ -27,17 +27,17 @@ return [
     | Email de la aplicación
     |--------------------------------------------------------------------------
     |
-    | Remitente de los emails enviados via PHP
+    | Dirección email remitente de los emails enviados via PHP
     |
     */
     'app_mail' => 'app@example.com',
 
     /*
     |--------------------------------------------------------------------------
-    | Email de la aplicación
+    | Nombre del email de la aplicación
     |--------------------------------------------------------------------------
     |
-    | Remitente de los emails enviados via PHP
+    | Aparece como nombre del remitente de los emails enviados via PHP
     |
     */
     'app_mail_name' => 'App Xerintel',
