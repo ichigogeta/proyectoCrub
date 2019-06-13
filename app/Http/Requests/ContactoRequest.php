@@ -17,21 +17,22 @@ class ContactoRequest extends FormRequest
     }
 
     /**
-     * Toma las normas de validación para esta Request.
+     * Toma las normas de validaciÃ³n para esta Request.
      *
      * @return array
      */
     public function rules()
     {
-        // https://laravel.com/docs/5.5/validation#available-validation-rules
+        // https://laravel.com/docs/5.7/validation#available-validation-rules
         return [
             'nombre' => 'required|max:140',
             'email' => 'email',
             'cuerpo' => 'required',
             'condiciones' => 'accepted',
+            //'g-recaptcha-response' => 'required|captcha', //si usamos el paquete de recaptcha
         ];
     }
-    
+
     /*
     public function messages()
     {
@@ -46,9 +47,10 @@ class ContactoRequest extends FormRequest
             'nombre' => 'Nombre',
             'email' => 'Email',
             'cuerpo' => 'Observaciones',
-            'condiciones' =>'He leido y acepto la política de privacidad',
-            'compania' => 'Compañía',
-            'phone'=> 'Teléfono'
+            'condiciones' =>'He leido y acepto la polÃ­tica de privacidad',
+            'compania' => 'CompaÃ±Ã­a',
+            'phone'=> 'TelÃ©fono',
+            //'g-recaptcha-response' => 'Es necesario verificar el captcha.' //si usamos el paquete de recaptcha
         ];
     }
     */
