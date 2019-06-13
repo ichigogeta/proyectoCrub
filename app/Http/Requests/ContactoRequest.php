@@ -50,7 +50,6 @@ class ContactoRequest extends FormRequest
             'condiciones' =>'He leido y acepto la política de privacidad',
             'compania' => 'Compañía',
             'phone'=> 'Teléfono',
-            //'g-recaptcha-response' => 'Es necesario verificar el captcha.' //si usamos el paquete de recaptcha
         ];
     }
     */
