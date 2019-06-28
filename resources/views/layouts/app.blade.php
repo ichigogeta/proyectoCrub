@@ -9,10 +9,10 @@
 @include('flash.errors')
 @include('flash.normal')
 
-<div id="container" class="container">
+
     @yield('content')
     {{-- @include('layouts.cookie_law')  --}}
-</div>
+
 
 @include('layouts.footer')
 @yield('late_footer')
