@@ -10,7 +10,7 @@ class PageController extends Controller
     {
         $page = Page::where('slug', $slug)->where('status', 'ACTIVE')->firstOrFail();
 
-        return view('page', ['post' => $page]);
+        return view('page', ['page' => $page]);
 
     }
 }
