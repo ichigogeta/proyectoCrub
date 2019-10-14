@@ -3,10 +3,15 @@
 namespace App;
 
 
+use TCG\Voyager\Traits\Translatable;
 use function url;
 
 class Page extends \TCG\Voyager\Models\Page
 {
+    use Translatable;
+
+    protected $translatable = ['title', 'body'];
+
     /**
      * Devuelve el enlace hacia la página.
      *
