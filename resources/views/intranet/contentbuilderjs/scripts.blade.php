@@ -30,7 +30,7 @@
         if ($('#body_i18n').length) {
             //es multilenguaje
 
-            var bodyValues = JSON.parse(bodyJsonInput.val())
+            var bodyValues = JSON.parse(bodyJsonInput.val());
 
             $('.form-edit-add').on('submit', function () {
                 bodyJsonInput.val(JSON.stringify(bodyValues));
@@ -60,7 +60,6 @@
             }
         });
 
-
         $('input[type=radio][name=i18n_selector]').change(function () {
             //$("html").fadeOut(1000);
             nextLang = $("input[name='i18n_selector']:checked").attr('id');
@@ -73,41 +72,38 @@
             onComplete: onComplete
         });
 
+
+        function onComplete() {
+            if (!multilenguaje) { // modo normal
+                var html = obj.html(); //Get content
+                $('#body').val(html);
+                $('.form-edit-add').submit();
+            } else if (submitEnabled) { //multidioma al hacer submit
+                console.log('guardar');
+                bodyValues[currentLang] = obj.html();
+                $('.form-edit-add').submit(); // hay un evento on submit solo para multilenguaje
+            }
+            else { //multidioma al cambiar pestaña
+                bodyValues[currentLang] = obj.html();
+                currentLang = nextLang;
+                console.log('enviado');
+                obj.loadHtml(bodyValues[nextLang]);
+            }
+        }
+
+        function saveMultiLenguaje() {
+            // Guarda las imagenes del idioma actual, porque las otras se guardaron al cambiar de un idioma a otro.
+
+            //$("html").fadeOut(1000);
+            submitEnabled = true;
+            console.log('guardar?');
+
+            $(container).data('saveimages').save();
+        }
+
+        function saveNormal() {
+            $(container).data('saveimages').save();
+            $("html").fadeOut(1000);//oculta la pagina mientras procesa
+        }
     });
-
-    function onComplete() {
-
-        if (!multilenguaje) { // modo normal
-            var html = obj.html(); //Get content
-            $('#body').val(html);
-            $('.form-edit-add').submit();
-        } else if (submitEnabled) { //multidioma al hacer submit
-            console.log('guardar');
-            bodyValues[currentLang] = obj.html();
-            $('.form-edit-add').submit(); // hay un evento on submit solo para multilenguaje
-        }
-        else { //multidioma al cambiar pestaña
-            bodyValues[currentLang] = obj.html();
-            currentLang = nextLang;
-            console.log('enviado');
-            obj.loadHtml(bodyValues[nextLang]);
-        }
-
-    }
-
-    function saveMultiLenguaje() {
-        // Guarda las imagenes del idioma actual, porque las otras se guardaron al cambiar de un idioma a otro.
-
-        //$("html").fadeOut(1000);
-        submitEnabled = true;
-        console.log('guardar?');
-
-        $(container).data('saveimages').save();
-    }
-
-    function saveNormal() {
-        $(container).data('saveimages').save();
-        $("html").fadeOut(1000);//oculta la pagina mientras procesa
-    }
-
 </script>
