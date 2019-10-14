@@ -178,7 +178,7 @@ class MenuItemsTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'title'   => 'Traducciones',
             'url'     => '/intranet/translations',
-            'route'   => null,
+            'route'   => 'ayuda',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
@@ -187,6 +187,22 @@ class MenuItemsTableSeeder extends Seeder
                 'color'      => null,
                 'parent_id'  => $toolsMenuItem->id,
                 'order'      => 15,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Ayuda',
+            'url'     => '/intranet/ayuda',
+            'route'   => null,
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-question',
+                'color'      => null,
+                'parent_id'  => $toolsMenuItem->id,
+                'order'      => 16,
             ])->save();
         }
     }
