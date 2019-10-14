@@ -8,9 +8,9 @@ use function url;
 
 class Page extends \TCG\Voyager\Models\Page
 {
-    use Translatable;
-
-    protected $translatable = ['title', 'body'];
+    ## Descomentar para traducciones
+    //use Translatable;
+    //protected $translatable = ['title', 'body'];
 
     /**
      * Devuelve el enlace hacia la página.
