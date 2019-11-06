@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use function view;
 
 //use App\Slide;
 
@@ -10,9 +11,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        //$posts = Post::whereStatus('PUBLISHED')->orderBy('created_at', 'desc')->limit(3)->get();
-        //$slides = Slide::where('active', 1)->orderBy('order')->get();
+        //$posts = Post::getNPaginate(3);  ## Pasar número de posts a obtener
+        //$slides = Slide::getAll();
 
-        return view('welcome');//, ['posts' => $posts]);//, 'slides' => $slides]);
+        return view('index')->with([
+            //'slides' => $slides,
+        ]);
     }
 }

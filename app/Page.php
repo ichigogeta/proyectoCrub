@@ -4,6 +4,8 @@ namespace App;
 
 
 use TCG\Voyager\Traits\Translatable;
+use function func_get_args;
+use function is_array;
 use function url;
 
 class Page extends \TCG\Voyager\Models\Page
@@ -11,6 +13,11 @@ class Page extends \TCG\Voyager\Models\Page
     ## Descomentar para traducciones
     //use Translatable;
     //protected $translatable = ['title', 'body'];
+
+    ## Slugs de páginas excluidas al mostrar todas
+    public static $excludedPages = [
+        'politica-de-privacidad',
+    ];
 
     /**
      * Devuelve el enlace hacia la página.
@@ -46,5 +53,12 @@ class Page extends \TCG\Voyager\Models\Page
         }
 
         return '';
+    }
+
+    public static function all($columns = ['*'])
+    {
+        $pages = parent::all();
+
+        return $pages->whereNotIn('slug', self::$excludedPages);
     }
 }

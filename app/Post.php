@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use function asset;
+use function strip_tags;
 use function url;
+use Illuminate\Support\Str;
 
 class Post extends \TCG\Voyager\Models\Post
 {
@@ -42,5 +44,33 @@ class Post extends \TCG\Voyager\Models\Post
         }
 
         return '';
+    }
+
+    /**
+     * Devuelve la cantidad de posts recibidos ordenados y paginados.
+     *
+     * @param int $limit
+     *
+     * @return mixed
+     */
+    public static function getNPaginate($limit = 4)
+    {
+        return self::whereStatus('PUBLISHED')
+            ->orderBy('created_at', 'desc')
+            ->paginate($limit);
+    }
+
+    /**
+     * Devuelve el cuerpo sin etiquetas html y limitado a la cantidad de
+     * carácteres recibidos.
+     *
+     * @param int    $limit Cantidad de carácteres a limitar.
+     * @param string $final Final del párrafo.
+     *
+     * @return mixed
+     */
+    public function getBodyClean($limit = 250, $final = '...')
+    {
+        return Str::limit(strip_tags($this->body), $limit, $final);
     }
 }
