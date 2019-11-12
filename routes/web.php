@@ -17,12 +17,12 @@ Route::get('/noticias/{id}/{slug?}', 'PostController@read');
 Route::get('/contacto', 'ContactoController@read')->name('contacto');
 Route::post('/contacto', 'ContactoController@send');
 
-Route::get('/pagina/{slug}', 'PageController@read')->name('pagina');;
+Route::get('/pagina/{slug}', 'PageController@read')->name('pagina');
 
 /*
 Route::get('politica-de-privacidad', function () {
     return redirect()->route('pagina', ['slug' => 'politica-de-privacidad']);
-});
+})->name('privacity');
 */
 
 Auth::routes(); //Login y registro público. Comentar si no se necesita.
