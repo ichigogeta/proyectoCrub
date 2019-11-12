@@ -17,8 +17,13 @@ Route::get('/noticias/{id}/{slug?}', 'PostController@read');
 Route::get('/contacto', 'ContactoController@read')->name('contacto');
 Route::post('/contacto', 'ContactoController@send');
 
-Route::get('/pagina/{slug}', 'PageController@read');
+Route::get('/pagina/{slug}', 'PageController@read')->name('pagina');
 
+/*
+Route::get('politica-de-privacidad', function () {
+    return redirect()->route('pagina', ['slug' => 'politica-de-privacidad']);
+})->name('privacity');
+*/
 
 Auth::routes(); //Login y registro público. Comentar si no se necesita.
 
@@ -30,6 +35,9 @@ Route::group(['prefix' => 'intranet'], function () {
     Route::group(['middleware' => 'admin.user'], function () {
         Route::get('/users/suplantar/{id}', 'UserController@suplantar')->name('intranet.user.suplantar');
         Route::any('/cms/imagesave', 'Admin\VoyagerController@saveImage')->name('intranet.contentbuilder.saveimage');
+        Route::get('/ayuda', function () {
+            return view('vendor.voyager.ayuda.index');
+        })->name('ayuda');
     });
     Voyager::routes(); //Rutas de la intranet
 });

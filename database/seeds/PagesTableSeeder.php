@@ -97,7 +97,7 @@ class PagesTableSeeder extends Seeder
         $dataRow = $this->dataRow($pageDataType, 'body');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'rich_text_box',
+                'type'         => 'contentbuilder',
                 'display_name' => __('voyager::seeders.data_rows.body'),
                 'required'     => 1,
                 'browse'       => 0,
@@ -259,7 +259,11 @@ class PagesTableSeeder extends Seeder
                 'title'     => 'Hello World',
                 'excerpt'   => 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.',
                 'body'      => '<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>
-<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>',
+<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p><div class="row"><div class="col-md-12"><div class="display">
+	<p class="size-18">A BEAUTIFUL DAY IN OCTOBER</p>
+	<h1 class="size-60">Time to think, time to create.</h1>
+</div>
+<p class="size-16">— By David Anderson</p></div></div><div class="row"><div class="col-md-12"><div class="spacer height-60"></div></div></div><div class="row"><div class="col-md-6"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&nbsp;</p></div><div class="col-md-6"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s. Lorem ipsum dolor sit amet. Vivamus leo ante, consectetur sit amet vulputate vel, amet lectus.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&nbsp;</p></div></div>',
                 'image'            => 'pages/page1.jpg',
                 'meta_description' => 'Yar Meta Description',
                 'meta_keywords'    => 'Keyword1, Keyword2',

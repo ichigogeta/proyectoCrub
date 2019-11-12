@@ -1,6 +1,7 @@
 <link href="{{asset('vendor/contentbuilder/assets/minimalist-blocks/content.css')}}" rel="stylesheet"
       type="text/css"/>
 <link href="{{asset('vendor/contentbuilder/contentbuilder/contentbuilder.css')}}" rel="stylesheet" type="text/css"/>
+
 <style>
     .content-builder-container {
         margin: 120px auto;

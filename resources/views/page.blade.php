@@ -2,16 +2,32 @@
 
 @section('meta')
     <meta name="description"
-          content="">
+          content="{{$page->title}}">
     <meta name="keywords" content="">
-    {{--<meta name="author" content="Javier García">--}}
+    {{--<meta name="author" content="Raúl Caro Pastorino">--}}
 @endsection
+
+@include('layouts.contentbuilder_styles_front')
 
 @section('title')
     @parent
-    - Página de Ejemplo
+    - {{$page->title}}
 @endsection
 
-@section('content')
+{{--
+----- Atributos -----
+Título: $page->title
+Contenido: $page->body
+Slug: $page->slug
+Url de la Página: $page->url
+Url de la Imagen: $page->urlImage
+Fecha de creación en Español: $page->fecha
+--}}
 
+@section('content')
+    {{--
+    <div class="box-content-builder">
+        {!! $page->body!!}
+    </div>
+    --}}
 @endsection

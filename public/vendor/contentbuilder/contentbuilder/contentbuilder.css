@@ -1,10 +1,10 @@
 ﻿/* Helper */
 
-.is-builder > div > div:focus, 
+.is-builder > div > div:focus,
 .is-builder table:focus {outline:none}
-.is-builder > div > div.cell-active, 
-.is-builder > div > table.cell-active {outline:1px solid #00da89;}  
-.is-builder > .row-active {outline:1px solid #00da89;} 
+.is-builder > div > div.cell-active,
+.is-builder > div > table.cell-active {outline:1px solid #00da89;}
+.is-builder > .row-active {outline:1px solid #00da89;}
 
 .cell-active h1.elm-active,
 .cell-active h2.elm-active,
@@ -51,14 +51,14 @@
 .clearfix {*zoom: 1;}
 
 .is-builder .icon {cursor:pointer}
-.is-builder {transition: all ease 0.3s;} 
+.is-builder {transition: all ease 0.3s;}
 
-/* 
+/*
     .is-tool = main toolbar (with series of floated-left buttons).
     .is-pop = popup (with buttons, inputs, etc that dynaically show/hide).
-    .is-modal = centered popup.     
+    .is-modal = centered popup.
 */
-.is-pop, .is-tool {position:absolute;top:0;left:0;display:none;z-index:1;background:#fff;border:1px solid rgb(199, 199, 199);transition: all ease 0.3s;}         
+.is-pop, .is-tool {position:absolute;top:0;left:0;display:none;z-index:1;background:#fff;border:1px solid rgb(199, 199, 199);transition: all ease 0.3s;}
 .is-pop {z-index:2}
 .is-tool > div {float:left;}
 .is-tool button {float:left}
@@ -67,7 +67,7 @@
     justify-content:center;align-items:center;flex-direction:column;
 }
 .is-modal > div {width:90%;background:rgba(255,255,255,1);border: 1px solid rgb(199, 199, 199);box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.02);padding: 12px 12px;}
-.is-modal.active {display:flex;} 
+.is-modal.active {display:flex;}
 .is-modal-bar {
     box-sizing: border-box;
     padding: 5px;
@@ -96,7 +96,7 @@
 .link-src .input-more {position:absolute;top:0;right:0;width:60px;font-size:20px;color:#777;height: 50px;border: 1px solid rgb(199, 199, 199);border-left:none;background:transparent;}
 .link-src .input-select {position:absolute;top:0;right:120px;width:60px;font-size:20px;color:#777;height: 50px;border: 1px solid rgb(199, 199, 199);border-left:none;background:transparent;}
 
-.icon {transition: all ease 0.1s;} 
+.icon {transition: all ease 0.1s;}
 
 #divIconTool > button {width:40px;height:40px;}
 
@@ -107,8 +107,8 @@
 */
 body.full-edit {overflow:hidden;position:fixed;top:0;left:0;width: 100%;height: 100%;}
 body.full-edit #divRteTool {display:block !important;top:-1px !important;z-index: 3;}
-body.full-edit #divRowTool, 
-body.full-edit #divCellTool, 
+body.full-edit #divRowTool,
+body.full-edit #divCellTool,
 body.full-edit #divElementTool {z-index:-1;opacity:0;}
 body.full-edit .cell-active {outline: none !important;}
 body.full-edit .elm-active {background: none !important;}
@@ -127,39 +127,39 @@ body.full-edit .mobile-tool {display:table !important;position:fixed;top:0;right
     box-sizing:border-box;
     margin: 0;
     cursor: pointer;
-    background-color:#fff;  
-    color: #4a4a4a; 
+    background-color:#fff;
+    color: #4a4a4a;
     border: 1px solid transparent;
     font-family: sans-serif;
     letter-spacing: 1px;
     font-size:12px;
     text-transform:uppercase;
-    text-align:center;  
+    text-align:center;
     position:relative;
-    transition: all ease 0.3s;     
-    }
-.is-pop button:focus, 
-.is-tool button:focus, 
+    transition: all ease 0.3s;
+}
+.is-pop button:focus,
+.is-tool button:focus,
 .is-modal button:focus,
 .is-modal select:focus {outline:none;}
 .is-pop button.classic, .is-modal button.classic, .is-tool button.classic {
     width: 100%;
     height:60px;
     display: block;
-    background: #f7f7f7; 
+    background: #f7f7f7;
 }
 .is-pop button.classic:hover, .is-modal button.classic:hover, .is-tool button.classic:hover {background: #fafafa;}
 .is-pop button.on, .is-tool button.on, .is-modal button.on {
     background: #f7f7f7;
 }
 .is-pop textarea, .is-modal textarea {font-family: courier;font-size: 17px;line-height: 2;letter-spacing: 1px;padding:8px 16px;box-sizing:border-box;border:1px solid rgb(199, 199, 199);}
-.is-pop textarea:focus, .is-modal textarea:focus {outline:none}  
-        
-.is-modal input[type=text], .is-pop input[type=text] {width:100%;height:50px;border:1px solid rgb(199, 199, 199);box-sizing: border-box;margin:0; 
+.is-pop textarea:focus, .is-modal textarea:focus {outline:none}
+
+.is-modal input[type=text], .is-pop input[type=text] {width:100%;height:50px;border:1px solid rgb(199, 199, 199);box-sizing: border-box;margin:0;
     font-family: sans-serif;font-size: 19px;letter-spacing: 1px;
     padding-left: 8px;color: #333;
 }
-.is-modal input:focus, .is-pop input[type=text]:focus {outline:none;}        
+.is-modal input:focus, .is-pop input[type=text]:focus {outline:none;}
 .is-modal label {font-family:sans-serif;font-size: 16px;letter-spacing: 1px;}
 .is-modal p {
     font-family: sans-serif;
@@ -177,7 +177,7 @@ body.full-edit .mobile-tool {display:table !important;position:fixed;top:0;right
     color: #454545;
     border-radius: 5px;
     border: none;
-    background: #eee;    
+    background: #eee;
 }
 .is-modal select option {
     background: #fff;
@@ -193,18 +193,18 @@ body.full-edit .mobile-tool {display:table !important;position:fixed;top:0;right
     width: 100%;
     height:60px;
     display: block;
-    background: #f7f7f7; 
+    background: #f7f7f7;
 }
 .is-settings button.classic:hover {background: #fafafa;}
 
 
 button {
-        user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -o-user-select: none;
-} 
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
 
 /*
     Tabs
@@ -216,7 +216,7 @@ button {
     font-family: sans-serif;
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;  
+    letter-spacing: 2px;
     background:#f9f9f9;
 }
 .is-tabs a {
@@ -225,7 +225,7 @@ button {
     padding: 3px 3px 0;
     color: #4a4a4a;
     border-bottom: transparent 1px solid;
-            
+
     margin: 0 16px 16px 0;
     text-decoration: none;
     transition: box-shadow ease 0.3s;
@@ -246,8 +246,8 @@ button {
     font-family: sans-serif;
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;  
-    }
+    letter-spacing: 2px;
+}
 .is-tabs-more > a {
     display:block;
     color: #4a4a4a;
@@ -259,16 +259,16 @@ button {
 
 /*
     Specific
-*/        
+*/
 .cell-tool-option-container {float:left;overflow:hidden;width:360px;height:50px;position:relative;}
 .cell-tool-option-container > div {width:660px;position:absolute;top:0;left:0;transition: all ease 0.2s;}
-          
-.cell-add-options {width:410px;padding:8px 9px;box-sizing:border-box;transition: none; }  
+
+.cell-add-options {width:410px;padding:8px 9px;box-sizing:border-box;transition: none; }
 .cell-add-options button {float:left;width: 130px;height: 65px;}
-        
-#divRowTool {width:57px;box-sizing: border-box}     
-#divRowTool button {width:100%;height: 50px;}                         
-        
+
+#divRowTool {width:57px;box-sizing: border-box}
+#divRowTool button {width:100%;height: 50px;}
+
 .row-add-initial {
     width: 100%;
     height: 80px;
@@ -287,7 +287,7 @@ button {
 .row-add-initial:hover {background: rgba(0,0,0,0.01)}
 .row-add-initial:focus {outline:none}
 .row-add-initial span {text-transform:none;display:block;margin-top:10px;color:#acacac;font-size:15px;}
-                
+
 .createlink .more {overflow:hidden; height:0px;}
 .createlink .more.active {animation-name:createlink-slide-out; animation-duration:0.3s; animation-fill-mode: forwards;}
 @keyframes createlink-slide-out {
@@ -298,11 +298,11 @@ button {
 @keyframes createlink-slide-in {
     from {height: 221px;}
     to {height: 0;}
-} 
+}
 
 .cell-block-options > div {width:280px;overflow-x:hidden;}
-.cell-block-options > div > div {cursor:pointer;overflow:hidden;padding:5px 0;box-sizing:border-box;} 
-.cell-block-options > div > div > * {text-transform: none !important;margin:0 !important;line-height: 1.83!important;text-align:center;} 
+.cell-block-options > div > div {cursor:pointer;overflow:hidden;padding:5px 0;box-sizing:border-box;}
+.cell-block-options > div > div > * {text-transform: none !important;margin:0 !important;line-height: 1.83!important;text-align:center;}
 
 .cell-color-options {width: 333px;padding:8px;box-sizing: border-box;}
 .cell-color-options button {float:left;width:45px;height:45px;cursor:pointer;}
@@ -323,9 +323,9 @@ button {
     height: 30px;
     line-height: 30px;
     box-sizing: border-box;
-    margin: 0 38px 12px;    
+    margin: 0 38px 12px;
 }
-.cell-color-options .input-mode.active {   
+.cell-color-options .input-mode.active {
     border-bottom: rgba(103, 103, 103, 0.72) 1px solid; /* rgba(235,66,13,0.72) 1px solid; */
 }
 
@@ -339,7 +339,7 @@ button {
 @keyframes color-slide-in {
     from {height: 54px;}
     to {height: 0;}
-} 
+}
 
 .gradient-anim {
     left:0px;
@@ -349,9 +349,9 @@ button {
 }
 
 @keyframes grad-anim {
-     0% {left:0px;}
-     50% {left:-180px;}
-     100% {left:0px;}       
+    0% {left:0px;}
+    50% {left:-180px;}
+    100% {left:0px;}
 }
 
 
@@ -362,7 +362,7 @@ button {
     float:left;
     font-size: 17px;
     border: #d4d3d3 1px solid;
-    }
+}
 .cell-textsetting-options > div {
     font-family: sans-serif;
     font-size: 14px;
@@ -406,31 +406,31 @@ button {
 @keyframes color-slide-in {
     from {height: 54px;}
     to {height: 0;}
-} 
+}
 
 .imageedit-crop button {margin: 0 20px 0 0;border: #d1d1d1 1px solid;background: #fff;}
 
 
 /*http://codepen.io/vcmg/pen/JdKeVG */
 .dot {
-  height: 7px;
-  width: 7px;
-  border-radius: 50%;
-  background-color: #ff6700;
-  display: inline-block;
-  margin: 25px 2px 0;
-  -webkit-animation: jump 1.5s linear infinite;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: #ff6700;
+    display: inline-block;
+    margin: 25px 2px 0;
+    -webkit-animation: jump 1.5s linear infinite;
 }
 @-webkit-keyframes jump {
-  0%, 100% {transform: translateY(0px);}
-  20% {transform: translateY(-10px);}
-  40% {transform: translateY(0px);}
+    0%, 100% {transform: translateY(0px);}
+    20% {transform: translateY(-10px);}
+    40% {transform: translateY(0px);}
 }
 .dot:nth-of-type(2) {
-  -webkit-animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
 }
 .dot:nth-of-type(3) {
-  -webkit-animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
 }
 #divImageProgress {display:none;position:absolute;top:0;left:0;z-index:1;box-sizing:border-box;background:rgba(0, 0, 0, 0.17);transition: none;}
 #divImageProgress > div {display:table-cell;vertical-align:middle;text-align:center;}
@@ -490,101 +490,101 @@ button {
     margin-top: 4px;
     line-height: 50px;
 }
-        
+
 /* Pop with Arrow */
 .is-pop.arrow-top:after, .is-pop.arrow-top:before {
-	bottom: 100%;
-	left: 25px;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	top: auto;
+    bottom: 100%;
+    left: 25px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    top: auto;
 }
 .is-pop.arrow-top:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-bottom-color: #ffffff;
-	border-width: 7px;
-	margin-left: -7px;
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 7px;
+    margin-left: -7px;
 }
 .is-pop.arrow-top:before {
-	border-color: rgba(0, 0, 0, 0);
-	border-bottom-color: #8a8a8a;
-	border-width: 8px;
-	margin-left: -8px;
+    border-color: rgba(0, 0, 0, 0);
+    border-bottom-color: #8a8a8a;
+    border-width: 8px;
+    margin-left: -8px;
 }
 .is-pop.arrow-top.center:after, .is-pop.arrow-top.center:before {
-	left: 200px;
+    left: 200px;
 }
 .is-pop.arrow-left:after, .is-pop.arrow-left:before {
-	right: 100%;
-	top: 20px;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+    right: 100%;
+    top: 20px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
 .is-pop.arrow-left:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-right-color: #ffffff;
-	border-width: 7px;
-	margin-top: -7px;
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #ffffff;
+    border-width: 7px;
+    margin-top: -7px;
 }
 .is-pop.arrow-left:before {
-	border-color: rgba(0, 0, 0, 0);
-	border-right-color: #8a8a8a;
-	border-width: 8px;
-	margin-top: -8px;
+    border-color: rgba(0, 0, 0, 0);
+    border-right-color: #8a8a8a;
+    border-width: 8px;
+    margin-top: -8px;
 }
-                
+
 .is-pop.arrow-right:after, .is-pop.arrow-right:before {
-	left: 100%;
-	top: 20px;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+    left: 100%;
+    top: 20px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
 .is-pop.arrow-right:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-left-color: #ffffff;
-	border-width: 7px;
-	margin-top: -7px;
+    border-color: rgba(255, 255, 255, 0);
+    border-left-color: #ffffff;
+    border-width: 7px;
+    margin-top: -7px;
 }
 .is-pop.arrow-right:before {
-	border-color: rgba(0, 0, 0, 0);
-	border-left-color: #8a8a8a;
-	border-width: 8px;
-	margin-top: -8px;
-}   
+    border-color: rgba(0, 0, 0, 0);
+    border-left-color: #8a8a8a;
+    border-width: 8px;
+    margin-top: -8px;
+}
 
 .is-pop.arrow-bottom:after, .is-pop.arrow-bottom:before {
-	top: 100%;
-	left: 380px;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+    top: 100%;
+    left: 380px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
 .is-pop.arrow-bottom:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-top-color: #ffffff;
-	border-width: 7px;
-	margin-left: -7px;
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #ffffff;
+    border-width: 7px;
+    margin-left: -7px;
 }
 .is-pop.arrow-bottom:before {
-	border-color: rgba(0, 0, 0, 0);
-	border-top-color: #8a8a8a;
-	border-width: 8px;
-	margin-left: -8px;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #8a8a8a;
+    border-width: 8px;
+    margin-left: -8px;
 }
 
 table.default td {

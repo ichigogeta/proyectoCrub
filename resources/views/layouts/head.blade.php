@@ -11,12 +11,18 @@
     </title>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     {{-- Favicon --}}
     <link rel="icon" href="{{asset('favicon.ico')}}" type="image/ico" sizes="16x16">
-    <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet'
-          type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+    {{-- Tipografías --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+          rel='stylesheet'
+          type='text/css' />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"
+          rel='stylesheet'
+          type='text/css' />
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
