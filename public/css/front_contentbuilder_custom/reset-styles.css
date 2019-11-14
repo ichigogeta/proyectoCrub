@@ -1,0 +1,213 @@
+.box-content-builder {
+    /*all: unset;*/
+}
+
+.box-content-builder::before,
+.box-content-builder::after,
+.box-content-builder *,
+.box-content-builder *::before,
+.box-content-builder *::after {
+    /* Borrar todos para el bloque, demasiado borra... */
+    /*all: inherit*/;
+
+    /*
+      Use inherit to set a property to its inherit value.
+      Use inherit to reset a property to the value established by the user-agent stylesheet (or by user styles, if any exist).
+      Use inherit to make an element's property the same as its parent.
+      The all property lets you reset all properties to their inherit, inherited, inherited, or inherit state at once.
+    */
+
+
+    /*
+
+    background-color: transparent;
+    color: #000;
+    font: inherit;
+    font-weight: 1em;
+
+    font-size: 1em;
+    font-family: "Open Sans", sans-serif;
+    line-height: inherit;
+    text-align: inherit;
+    text-decoration:inherit;
+
+    align-content: inherit;
+    align-items: inherit;
+    align-self: inherit;
+    alignment-baseline: inherit;
+    animation: inherit;
+    backface-visibility: inherit;
+
+    outline: inherit;
+    box-sizing: inherit;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding: 0;
+
+      display: inherit;
+      vertical-align: inherit;
+      border: inherit;
+      border-collapse: inherit;
+      border-spacing: inherit;
+      font-height: inherit;
+      font-style: inherit;
+    */
+
+}
+
+.box-content-builder a:link {
+    /*text-decoration: underline;*/
+    cursor: auto;
+}
+
+.box-content-builder a:visited {
+    /*text-decoration: underline;*/
+    cursor: auto;
+}
+
+.box-content-builder a:link:active {
+}
+
+.box-content-builder a:visited:active {
+}
+
+.box-content-builder b {
+    font-weight: bold;
+}
+
+.box-content-builder h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.box-content-builder h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.box-content-builder h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.box-content-builder h4 {
+    display: block;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.box-content-builder h5 {
+    display: block;
+    font-size: .83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.box-content-builder h6 {
+    display: block;
+    font-size: .67em;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.box-content-builder hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.box-content-builder p {
+    font-size: 1.2em;
+}
+
+.box-content-builder img {
+    display: inline-block;
+}
+
+.box-content-builder footer {
+    display: block;
+}
+
+.box-content-builder strong {
+    font-weight: bold;
+}
+
+.box-content-builder table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+
+.box-content-builder title {
+    display: none;
+}
+
+.box-content-builder thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.box-content-builder th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box-content-builder tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.box-content-builder td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.box-content-builder sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.box-content-builder sup {
+    vertical-align: super;
+    font-size: smaller;
+}
