@@ -8,7 +8,7 @@
 
     {{-- Añade todas las páginas excepto las excluidas --}}
     @foreach(\App\Page::all() as $page)
-        @if (! $page->slug != )
+        @if (! $page->slug != '')
             <li><a href="{{ $page->url }}">{{ $page->title }}</a></li>
         @endif
     @endforeach
