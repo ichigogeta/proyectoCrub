@@ -17,6 +17,7 @@
 @include('layouts.footer')
 @yield('late_footer')
 @yield('css')
+@yield('styles')
 @yield('style')
 @yield('javascript')
 @yield('js')

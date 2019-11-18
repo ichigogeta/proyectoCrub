@@ -7,8 +7,6 @@
     {{--<meta name="author" content="Raúl Caro Pastorino">--}}
 @endsection
 
-@include('layouts.contentbuilder_styles_front')
-
 @section('title')
     @parent
     - {{$page->title}}
@@ -30,4 +28,10 @@ Fecha de creación en Español: $page->fecha
         {!! $page->body!!}
     </div>
     --}}
+@endsection
+
+
+{{-- Añade estilos CSS para contentbuilder al final --}}
+@section('style')
+    @include('layouts.contentbuilder_styles_front')
 @endsection
