@@ -10,6 +10,8 @@ use function url;
 
 class Page extends \TCG\Voyager\Models\Page
 {
+    protected $table = 'pages';
+
     ## Descomentar para traducciones
     //use Translatable;
     //protected $translatable = ['title', 'body'];

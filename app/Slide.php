@@ -8,6 +8,8 @@ use function url;
 
 class Slide extends Model
 {
+    protected $table = 'slides';
+
     public $timestamps = false; //false significa no usar fechas de creación y modificación en la tabla. default=true.
 
     /**
@@ -40,6 +42,5 @@ class Slide extends Model
                 $item->orden = $tmp->orden + 1;
             }
         });
-
     }
 }
