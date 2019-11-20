@@ -7,20 +7,29 @@ use App\Post;
 class PostController extends Controller
 {
 
-    public function listAll()
+    /**
+     * Muestra el listado con todas las noticias.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
     {
         $posts = Post::whereStatus('PUBLISHED')->orderBy('created_at', 'desc')->paginate(3);
-        //  dd($posts);
-        return view('blog', ['posts' => $posts]);
 
+        return view('posts.index', ['posts' => $posts]);
     }
 
-
-    public function read($id)
+    /**
+     * Muestra un post concreto.
+     *
+     * @param $id Recibe el id del post a mostrar.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($id)
     {
         $post = Post::where('id', $id)->whereStatus('PUBLISHED')->firstOrFail();
 
-        return view('post', ['post' => $post]);
-
+        return view('posts.show', ['post' => $post]);
     }
 }

@@ -147,11 +147,12 @@
 
                         <div id="editor-contenido-avanzado"  class="col-md-12">
                             <h3>Editor de Contenido Avanzado</h3>
-                            Descripcción
                             <br /><br />
-                            <img class="ayuda-image" src="{{asset('img/intranet/ayuda/6.jpg')}}">
-                            <br /><br />
-                            Imagen o vídeo
+                            <video style="width: 100%" controls>
+                                <source src="{{asset('video/intranet/ayuda/contentbuilder-xerintel-demo.mp4')}}"
+                                        type="video/mp4">
+                                Tu navegador no soporta la etiqueta de vídeo
+                            </video>
                             <br /><br />
                         </div>
                     </div>

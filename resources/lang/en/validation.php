@@ -143,4 +143,5 @@ return [
 
     'attributes' => [],
 
+    'image_validator' => 'Imagen error - Max size: 2MB, format: jpg, png y gif',
 ];

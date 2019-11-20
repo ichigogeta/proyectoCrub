@@ -178,4 +178,6 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
     ],
+
+    'image_validator' => 'Error en la imagen - Tiene el tamaño máximo es de 2MB y los formatos soportados son: jpg, png y gif',
 ];

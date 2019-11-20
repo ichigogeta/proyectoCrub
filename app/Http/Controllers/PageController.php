@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use function view;
 
 class PageController extends Controller
 {
-
-    public function read($slug)
+    public function show($slug)
     {
         $page = Page::where('slug', $slug)->where('status', 'ACTIVE')->firstOrFail();
 
-        return view('page', ['page' => $page]);
-
+        return view('pages.show', ['page' => $page]);
     }
 }

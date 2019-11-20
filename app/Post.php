@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 
 class Post extends \TCG\Voyager\Models\Post
 {
+    protected $table = 'posts';
+
     /**
      * Devuelve el enlace hacia la página.
      *

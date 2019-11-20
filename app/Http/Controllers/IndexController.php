@@ -14,7 +14,7 @@ class IndexController extends Controller
         //$posts = Post::getNPaginate(3);  ## Pasar número de posts a obtener
         //$slides = Slide::getAll();
 
-        return view('index')->with([
+        return view('home')->with([
             //'slides' => $slides,
         ]);
     }

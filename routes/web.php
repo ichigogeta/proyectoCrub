@@ -12,12 +12,16 @@
 */
 Route::get('/', 'IndexController@index')->name('home');
 
-Route::get('/noticias', 'PostController@listAll')->name('noticias');
-Route::get('/noticias/{id}/{slug?}', 'PostController@read');
+## Posts
+Route::get('/noticias', 'PostController@index')->name('noticias');
+Route::get('/noticias/{id}/{slug?}', 'PostController@show');
+
+## Contacto
 Route::get('/contacto', 'ContactoController@read')->name('contacto');
 Route::post('/contacto', 'ContactoController@send');
 
-Route::get('/pagina/{slug}', 'PageController@read')->name('pagina');
+## Página
+Route::get('/pagina/{slug}', 'PageController@show')->name('pagina');
 
 /*
 Route::get('politica-de-privacidad', function () {
