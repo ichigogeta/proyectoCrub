@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Support\Facades\Auth;
 use function auth;
+use function event;
 use function redirect;
 
 class VerificationController extends Controller
@@ -68,6 +69,10 @@ class VerificationController extends Controller
 
         if (! $request->user()) {
             Auth::loginUsingId($request->route('id'), true);
+        }
+
+        if (auth()->user() && auth()->user()->markEmailAsVerified()) {
+            event(new Verified($request->user()));
         }
 
         return redirect($this->redirectPath())->with('verified', true);
