@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Support\Facades\Auth;
+use function auth;
+use function redirect;
 
 class VerificationController extends Controller
 {
@@ -26,7 +33,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,8 +42,34 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
+        //$this->middleware('auth')->except('verify');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
+
+        //dd(\request()->get('signature'));
+        //$user = User::whereNull('email_verified_at)
+        //auth()->login($user);
+    }
+
+    /**
+     * Mark the authenticated user's email address as verified.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthManager  $auth
+     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function verify(Request $request)
+    {
+        if ($request->user() && $request->user() != $request->route('id')) {
+            Auth::logout();
+        }
+
+        if (! $request->user()) {
+            Auth::loginUsingId($request->route('id'), true);
+        }
+
+        return redirect($this->redirectPath())->with('verified', true);
     }
 }

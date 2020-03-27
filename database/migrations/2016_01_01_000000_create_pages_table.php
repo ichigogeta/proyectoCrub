@@ -19,8 +19,8 @@ class CreatePagesTable extends Migration
             $table->integer('author_id');
             $table->string('title');
             $table->text('excerpt')->nullable();
-            $table->text('body')->nullable();
-            $table->string('image')->nullable();
+            $table->longText('body')->nullable();
+            $table->text('image')->nullable();
             $table->string('slug')->unique();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
