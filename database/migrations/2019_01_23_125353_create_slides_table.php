@@ -20,11 +20,11 @@ class CreateSlidesTable extends Migration
             $table->increments('id');
             $table->boolean('active')->default(0);
             $table->unsignedInteger('orden')->default(0);//usar con el ordenamiento del bread
-            $table->string('image');
-            $table->string('title')->nullable();
-            $table->string('text')->nullable();
-            $table->string('url')->nullable(); //clic directo o botón
-            $table->string('url_text')->nullable();//texto para el botón.
+            $table->text('image');
+            $table->string('title', 255)->nullable();
+            $table->string('text', 255)->nullable();
+            $table->string('url', 255)->nullable(); //clic directo o botón
+            $table->string('url_text', 511)->nullable();//texto para el botón.
             //$table->timestamps();
         });
     }
