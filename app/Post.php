@@ -2,6 +2,7 @@
 
 namespace App;
 
+//use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use function asset;
 use function strip_tags;
@@ -11,6 +12,10 @@ use Illuminate\Support\Str;
 class Post extends \TCG\Voyager\Models\Post
 {
     protected $table = 'posts';
+
+    ## Descomentar para traducciones
+    //use Translatable;
+    //protected $translatable = ['title', 'body'];
 
     /**
      * Devuelve el enlace hacia la página.
