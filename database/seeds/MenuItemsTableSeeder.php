@@ -178,7 +178,7 @@ class MenuItemsTableSeeder extends Seeder
             'menu_id' => $menu->id,
             'title'   => 'Traducciones',
             'url'     => '/intranet/translations',
-            'route'   => 'ayuda',
+            'route'   => null,
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
