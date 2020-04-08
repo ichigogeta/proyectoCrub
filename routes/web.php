@@ -23,6 +23,9 @@ Route::post('/contacto', 'ContactoController@send');
 ## Página
 Route::get('/pagina/{slug}', 'PageController@show')->name('pagina');
 
+## Cambia el idioma y vuelve a la misma página.
+Route::get('/language/{code?}', 'LanguageController@setLocale')->name('language');
+
 /*
 Route::get('politica-de-privacidad', function () {
     return redirect()->route('pagina', ['slug' => 'politica-de-privacidad']);
