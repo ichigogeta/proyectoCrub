@@ -50,6 +50,7 @@ return [
     'twitter' => 'https://twitter.com/xerintel',
     'linkedin' => 'https://www.linkedin.com/xerintel',
     'youtube' => 'https://www.youtube.com/xerintel',
+    'pinterest' => 'https://www.pinterest.com/xerintel',
 
     /**
      * Datos de la empresa.
