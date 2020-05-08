@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
+use function asset;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -32,5 +33,15 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     {
         if (!$this->provider) //provider se usa en logins sociales
             $this->notify(new ResetPasswordNotification($token));
+    }
+
+    /**
+     * Genera la ruta hacia el avatar del usuario y lo devuelve.
+     *
+     * @return string Url hacia el avatar del usuario.
+     */
+    public function getUrlImageAttribute()
+    {
+        return asset('storage/' . $this->avatar);
     }
 }
