@@ -53,3 +53,29 @@ Route::group(['prefix' => 'intranet'], function () {
 Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|google');
 Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|google');
  */
+
+
+############################################################
+##                      RAÚL TESTS                        ##
+############################################################
+
+/**
+ * En esta sección se añaden las rutas para probar o depurar cosas.
+ * Si te interesa que siempre estén en desarrollo activas, usa el grupo
+ * correspondiente, para depurar independiente del entorno se usa la variable
+ * DEBUG del archivo .env.
+ */
+
+## Rutas de prueba habilitadas cuando se activa el debug en el .env
+if (config('app.debug')) {
+    Route::group(['prefix' => 'test'], function () {
+
+    });
+}
+
+## Rutas de pruebas solo habilitadas en local para depurar.
+if (config('app.env') != 'production') {
+    Route::group(['prefix' => 'test'], function () {
+
+    });
+}
