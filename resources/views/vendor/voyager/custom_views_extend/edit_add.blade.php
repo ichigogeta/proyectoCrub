@@ -10,6 +10,11 @@
     <h1 class="page-title">
         <i class="{{ $dataType->icon }}"></i>
         {{ __('voyager::generic.'.(!is_null($dataTypeContent->getKey()) ? 'edit' : 'add')).' '.$dataType->display_name_singular }}
+
+        {{-- Sección para añadir botones en la parte superior --}}
+        <div style="display: inline-block;margin-left: -12px; margin-right: 18px;">
+            @yield('buttons_custom_top')
+        </div>
     </h1>
     @include('voyager::multilingual.language-selector')
 @stop
@@ -20,6 +25,11 @@
             <div class="col-md-12">
 
                 <div class="panel panel-bordered">
+                    {{-- Bloque de contenido personalizado superior--}}
+                    <div class="panel-body" style="padding-top:5px; border-bottom:0;">
+                        @yield('content_custom_top')
+                    </div>
+
                     <!-- form start -->
                     <form role="form"
                           class="form-edit-add"
@@ -49,6 +59,8 @@
                             @php
                                 $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
                             @endphp
+
+                            @yield('content_custom_form_top')
 
 
                             {{-- Custom Fields Top --}}
@@ -86,10 +98,14 @@
                             {{-- Custom Fields Top --}}
                             @yield('form_fields_custom_bottom')
 
+                            @yield('content_custom_form_bottom')
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
                             <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+
+                            {{-- Para añadir botones personalizados --}}
+                            @yield('content_custom_form_buttons')
                         </div>
                     </form>
 
@@ -103,6 +119,11 @@
                     </form>
 
                     @yield('extra_content')
+
+                    {{-- Bloque de contenido personalizado inferior--}}
+                    <div class="panel-body" style="padding-top:5px; border-bottom:0;">
+                        @yield('content_custom_bottom')
+                    </div>
                 </div>
             </div>
         </div>
