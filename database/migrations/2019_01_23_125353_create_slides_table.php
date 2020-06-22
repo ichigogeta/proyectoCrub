@@ -17,6 +17,9 @@ class CreateSlidesTable extends Migration
          * Slider básico, incluido con el paquete base.
          */
         Schema::create('slides', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
             $table->increments('id');
             $table->boolean('active')->default(0);
             $table->unsignedInteger('orden')->default(0);//usar con el ordenamiento del bread
