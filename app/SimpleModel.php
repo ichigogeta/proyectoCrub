@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
+use function count;
 
 abstract class SimpleModel extends Model
 {
@@ -29,5 +30,62 @@ abstract class SimpleModel extends Model
             \FlashHelper::warning('No se pudo guardar. Inténtelo más tarde o contacte con el administrador.');
             return false;
         }
+    }
+
+    /**
+     * Devuelve la consulta filtrada sin ejecutar para obtener elementos
+     * seguros.
+     *
+     * By Raúl Caro
+     *
+     * @param array $filter Recibe una matriz con los tipos de filtros dentro:
+     *                      where => ['campo' => 'condicion'],
+     *                      orWhere => ['campo' => 'condicion'],
+     *                      whereNull => ['campo'],
+     *                      whereNotNull => ['campo'],
+     *
+     * @return mixed
+     */
+    public function getAllFiltered($filter = [])
+    {
+        $model = self::whereNotNull('id');
+
+        ## Proceso el filtro de condiciones obligatorias.
+        if (isset($filter['where']) && count($filter['where'])) {
+            foreach ($filter['where'] as $idx => $filtro) {
+                if ($filtro != null) {
+                    $model->where($idx, $filtro);
+                }
+            }
+        }
+
+        ## Proceso el filtro de condiciones para no null.
+        if (isset($filter['whereNotNull']) && count($filter['whereNotNull'])) {
+            foreach ($filter['whereNotNull'] as $ele) {
+                $model->whereNotNull($ele);
+            }
+        }
+
+        ## Proceso el filtro de condiciones para obligar campos null.
+        if (isset($filter['whereNull']) && count($filter['whereNull'])) {
+            foreach ($filter['whereNull'] as $ele) {
+                $model->whereNull($ele);
+            }
+        }
+
+        ## Proceso el filtro de condiciones opcionales
+        if (isset($filter['orWhere']) && count($filter['orWhere'])) {
+            $model->where(function ($query) use ($filter) {
+                foreach ($filter['orWhere'] as $idx => $filtro) {
+                    if ($filtro) {
+                        $query->orWhere($idx, 'LIKE', '%'.$filtro.'%');
+                    }
+                }
+
+                return $query;
+            });
+        }
+
+        return $model;
     }
 }
