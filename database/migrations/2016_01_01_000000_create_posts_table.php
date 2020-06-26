@@ -14,6 +14,9 @@ class CreatePostsTable extends Migration
     {
         // Create table for storing roles
         Schema::create('posts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
             $table->increments('id');
             $table->integer('author_id');
             $table->integer('category_id')->nullable();

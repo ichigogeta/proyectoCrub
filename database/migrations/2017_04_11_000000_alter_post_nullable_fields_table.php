@@ -17,6 +17,9 @@ class AlterPostNullableFieldsTable extends Migration
         $platform->registerDoctrineTypeMapping('enum', 'string');
 
         Schema::table('posts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
             $table->text('excerpt')->nullable()->change();
             $table->text('meta_description')->nullable()->change();
             $table->text('meta_keywords')->nullable()->change();
