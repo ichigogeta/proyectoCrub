@@ -42,6 +42,16 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
      */
     public function getUrlImageAttribute()
     {
+        return $this->urlAvatar();
+    }
+
+    /**
+     * Devuelve el enlace hacia el avatar del usuario.
+     *
+     * @return string
+     */
+    public function getUrlAvatarAttribute()
+    {
         return asset('storage/' . $this->avatar);
     }
 }
