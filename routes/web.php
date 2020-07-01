@@ -26,6 +26,22 @@ Route::get('/pagina/{slug}', 'PageController@show')->name('pagina');
 ## Cambia el idioma y vuelve a la misma página.
 Route::get('/language/{code?}', 'LanguageController@setLocale')->name('language');
 
+
+## Perfil del usuario
+/*
+Route::group(['prefix' => 'profile'], function () {
+    ## Mostrar el perfil de un usuario.
+    Route::get('/show/{user_id}', 'UserController@frontShow')->name('profile.show');
+
+    ## Mostrar la vista para editar un usuario.
+    Route::get('/edit/{user_id}', 'UserController@frontEdit')->name('profile.edit');
+
+    ## Guardar los datos del usuario.
+    Route::post('/update/{user_id}', 'UserController@frontUpdate')->name('profile.update');
+});
+*/
+
+
 /*
 Route::get('politica-de-privacidad', function () {
     return redirect()->route('pagina', ['slug' => 'politica-de-privacidad']);
