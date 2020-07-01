@@ -26,6 +26,14 @@ Route::get('/pagina/{slug}', 'PageController@show')->name('pagina');
 ## Cambia el idioma y vuelve a la misma página.
 Route::get('/language/{code?}', 'LanguageController@setLocale')->name('language');
 
+## Cambia el idioma y redirige a otra página.
+Route::get('/locale/{code}/{path}', 'LanguageController@setLocaleAndRedirect')->name('locale.redirect');
+
+## Cambia el idioma y redirige a otro lugar recibiendo el nombre (name) de esa ruta.
+Route::get('/locale/{code}/{route}', 'LanguageController@setLocaleAndRedirectToRoute')->name('locale.route.redirect');
+
+
+
 
 ## Perfil del usuario
 /*
@@ -69,3 +77,36 @@ Route::group(['prefix' => 'intranet'], function () {
 Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|google');
 Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|google');
  */
+
+
+
+
+
+
+############################################################
+##                       RAÚL TESTS                       ##
+############################################################
+
+## Rutas de prueba habilitadas cuando se activa el debug en el .env
+if (config('app.debug')) {
+    Route::group(['prefix' => 'test'], function () {
+
+    });
+}
+
+## Rutas de pruebas solo habilitadas en local para depurar.
+if (config('app.env') != 'production') {
+    Route::group(['prefix' => 'test'], function () {
+
+        ## Stripe
+        Route::get('/stripe', function () {
+            return StripeHelper::payForm(100, 'Concepto de pago');
+
+            return auth()->user()->defaultCard();
+            return view('update-payment-method', [
+                'intent' => auth()->user()->createSetupIntent()
+            ]);
+        });
+
+    });
+}
