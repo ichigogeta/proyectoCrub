@@ -26,6 +26,30 @@ Route::get('/pagina/{slug}', 'PageController@show')->name('pagina');
 ## Cambia el idioma y vuelve a la misma página.
 Route::get('/language/{code?}', 'LanguageController@setLocale')->name('language');
 
+## Cambia el idioma y redirige a otra página.
+Route::get('/locale/{code}/{path}', 'LanguageController@setLocaleAndRedirect')->name('locale.redirect');
+
+## Cambia el idioma y redirige a otro lugar recibiendo el nombre (name) de esa ruta.
+Route::get('/locale/{code}/{route}', 'LanguageController@setLocaleAndRedirectToRoute')->name('locale.route.redirect');
+
+
+
+
+## Perfil del usuario
+/*
+Route::group(['prefix' => 'profile'], function () {
+    ## Mostrar el perfil de un usuario.
+    Route::get('/show/{user_id}', 'UserController@frontShow')->name('profile.show');
+
+    ## Mostrar la vista para editar un usuario.
+    Route::get('/edit/{user_id}', 'UserController@frontEdit')->name('profile.edit');
+
+    ## Guardar los datos del usuario.
+    Route::post('/update/{user_id}', 'UserController@frontUpdate')->name('profile.update');
+});
+*/
+
+
 /*
 Route::get('politica-de-privacidad', function () {
     return redirect()->route('pagina', ['slug' => 'politica-de-privacidad']);
@@ -49,7 +73,9 @@ Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes(); //Rutas de la intranet
 });
 
-/* Logins sociales
+
+## Logins sociales. Descomentar también en config/services.php.
+/*
 Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|google');
 Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|google');
  */
