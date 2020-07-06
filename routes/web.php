@@ -55,6 +55,30 @@ Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallb
  */
 
 
+## EJEMPLO DE RUTAS PARA UN CRUD
+/*
+ ## Proyectos
+Route::group(['prefix' => 'project'], function () {
+    ## Muestra el listado de todos los proyectos.
+    Route::get('/index', 'ProjectController@index')->name('project.index');
+
+    ## Muestra la vista de un proyecto concreto.
+    Route::get('/show/{project_id}', 'ProjectController@show')->name('project.show');
+
+    ## Mostrar la vista para crear un proyecto.
+    Route::get('/create', 'ProjectController@create')->name('project.create');
+
+    ## Guardar los datos del proyecto.
+    Route::post('/store/{project_id?}', 'ProjectController@store')->name('project.store');
+
+    ## Mostrar la vista para editar un proyecto.
+    Route::get('/edit/{project_id}', 'ProjectController@edit')->name('project.edit');
+
+    ## Actualiza los datos del proyecto.
+    Route::post('/update/{project_id}', 'ProjectController@update')->name('project.update');
+});
+ */
+
 ############################################################
 ##                      RAÚL TESTS                        ##
 ############################################################
