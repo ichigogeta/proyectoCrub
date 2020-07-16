@@ -30,7 +30,7 @@ Route::get('/language/{code?}', 'LanguageController@setLocale')->name('language'
 Route::get('/locale/{code}/{path}', 'LanguageController@setLocaleAndRedirect')->name('locale.redirect');
 
 ## Cambia el idioma y redirige a otro lugar recibiendo el nombre (name) de esa ruta.
-Route::get('/locale/{code}/{route}', 'LanguageController@setLocaleAndRedirectToRoute')->name('locale.route.redirect');
+Route::get('/locale/{code}/to/{route}', 'LanguageController@setLocaleAndRedirectToRoute')->name('locale.route.redirect');
 
 
 
