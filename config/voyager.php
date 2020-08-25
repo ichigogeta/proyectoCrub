@@ -210,12 +210,17 @@ return [
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
         'css/fontawesome-5.5/css/all.css',
+        //'css/tagit.ui-zendesk.css',
+        //'css/jquery.tagit.css',
     ],
 
     'additional_js' => [
         'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment-with-locales.js',
         //'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/locale/es.js',
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js',
+        //'https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js',
+        //'https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js',
+        //'js/tag-it.min.js',
         'js/intranet.js?v=1',
     ],
 

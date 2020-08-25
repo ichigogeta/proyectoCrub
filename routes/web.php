@@ -26,6 +26,30 @@ Route::get('/pagina/{slug}', 'PageController@show')->name('pagina');
 ## Cambia el idioma y vuelve a la misma página.
 Route::get('/language/{code?}', 'LanguageController@setLocale')->name('language');
 
+## Cambia el idioma y redirige a otra página.
+Route::get('/locale/{code}/{path}', 'LanguageController@setLocaleAndRedirect')->name('locale.redirect');
+
+## Cambia el idioma y redirige a otro lugar recibiendo el nombre (name) de esa ruta.
+Route::get('/locale/to/{code}/{route}', 'LanguageController@setLocaleAndRedirectToRoute')->name('locale.route.redirect');
+
+
+
+
+## Perfil del usuario
+/*
+Route::group(['prefix' => 'profile'], function () {
+    ## Mostrar el perfil de un usuario.
+    Route::get('/show/{user_id}', 'UserController@frontShow')->name('profile.show');
+
+    ## Mostrar la vista para editar un usuario.
+    Route::get('/edit/{user_id}', 'UserController@frontEdit')->name('profile.edit');
+
+    ## Guardar los datos del usuario.
+    Route::post('/update/{user_id}', 'UserController@frontUpdate')->name('profile.update');
+});
+*/
+
+
 /*
 Route::get('politica-de-privacidad', function () {
     return redirect()->route('pagina', ['slug' => 'politica-de-privacidad']);
@@ -49,7 +73,59 @@ Route::group(['prefix' => 'intranet'], function () {
     Voyager::routes(); //Rutas de la intranet
 });
 
-/* Logins sociales
+
+## Logins sociales. Descomentar también en config/services.php.
+/*
 Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|google');
 Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|google');
  */
+
+
+## EJEMPLO DE RUTAS PARA UN CRUD
+/*
+ ## Proyectos
+Route::group(['prefix' => 'project'], function () {
+    ## Muestra el listado de todos los proyectos.
+    Route::get('/index', 'ProjectController@index')->name('project.index');
+
+    ## Muestra la vista de un proyecto concreto.
+    Route::get('/show/{project_id}', 'ProjectController@show')->name('project.show');
+
+    ## Mostrar la vista para crear un proyecto.
+    Route::get('/create', 'ProjectController@create')->name('project.create');
+
+    ## Guardar los datos del proyecto.
+    Route::post('/store/{project_id?}', 'ProjectController@store')->name('project.store');
+
+    ## Mostrar la vista para editar un proyecto.
+    Route::get('/edit/{project_id}', 'ProjectController@edit')->name('project.edit');
+
+    ## Actualiza los datos del proyecto.
+    Route::post('/update/{project_id}', 'ProjectController@update')->name('project.update');
+});
+ */
+
+############################################################
+##                      RAÚL TESTS                        ##
+############################################################
+
+/**
+ * En esta sección se añaden las rutas para probar o depurar cosas.
+ * Si te interesa que siempre estén en desarrollo activas, usa el grupo
+ * correspondiente, para depurar independiente del entorno se usa la variable
+ * DEBUG del archivo .env.
+ */
+
+## Rutas de prueba habilitadas cuando se activa el debug en el .env
+if (config('app.debug')) {
+    Route::group(['prefix' => 'test'], function () {
+
+    });
+}
+
+## Rutas de pruebas solo habilitadas en local para depurar.
+if (config('app.env') != 'production') {
+    Route::group(['prefix' => 'test'], function () {
+
+    });
+}
