@@ -15,7 +15,6 @@ class CreateLtmTranslationsTable extends Migration
         Schema::create('ltm_translations', function (Blueprint $table) {
             $table->collation = 'utf8mb4_bin';
             $table->engine = 'InnoDB';
-            $table->charset = 'utf8';
             $table->increments('id');
             $table->integer('status')->default(0);
             $table->string('locale');
