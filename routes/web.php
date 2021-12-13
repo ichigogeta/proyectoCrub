@@ -32,9 +32,26 @@ Route::get('/locale/{code}/{path}', 'LanguageController@setLocaleAndRedirect')->
 ## Cambia el idioma y redirige a otro lugar recibiendo el nombre (name) de esa ruta.
 Route::get('/locale/to/{code}/{route}', 'LanguageController@setLocaleAndRedirectToRoute')->name('locale.route.redirect');
 
+##LAS ROUTAS ESTAN COMPUESTAS POR: ROUTE::GET('NOMBRERUTA','CONTROLADOR@METODO')->name('NOMBRE DEL ROUTE PARA SU USO.');
+##SI QUEREMOS VALIDAR LA RUTA DEBEMOS AÑADIRLE A LA RUTA ->Route::get('saludos/{nombre?}, function($nombre = "Invitado"){return "Saludos $nombre";})->where ('nombre',"[EXPRESION REGULAR");
 
 
 
+
+##Dirige a la vista plantilla de la lista.
+Route::get('listaUsuarios', 'VistasController@mostrarListaUsuarios')->name('mostrarListaUsuarios');
+
+##Dirige a a vista del formulario.
+Route::get('formulario','VistasController@mostrarFormulario')->name('mostrarFormulario');
+
+##Dirige del formulario a la lista con informacion a guardar. Le indicamos POST porque en el formulario esta el post y ademas para que al redigir a la vista envie los datos por los atributos names"
+Route::post('listaUsuarios','DatosController@guardar');
+##Dirige a la vista confirmacionEliminar y crea su ruta usando el metodo mostrarConfirmacion el cual esta en el controlador VistasController
+Route::post('confirmacionEliminar','VistasController@mostrarConfirmacion')->name('confirmacion');
+
+##OTRA PRACTICA SOBRE VALIDACION JS
+Route::get('validacionFormularioJS', 'VistasValidacionFController@mostrarFormulario')->name('formularioValidar');
+Route::get('mensajeValido','VistasValidacionFController@mostrarMensaje')->name('mensajeValido');
 ## Perfil del usuario
 /*
 Route::group(['prefix' => 'profile'], function () {

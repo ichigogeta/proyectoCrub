@@ -25,10 +25,10 @@ class ContactoRequest extends FormRequest
     {
         // https://laravel.com/docs/5.7/validation#available-validation-rules
         return [
-            'nombre' => 'required|max:140',
-            'email' => 'email',
-            'cuerpo' => 'required',
-            'condiciones' => 'accepted',
+            'usuario' => 'required|max:140',
+            'email' => 'required|email',
+            //'cuerpo' => 'required',
+            //'condiciones' => 'accepted',
             //'g-recaptcha-response' => 'required|captcha', //si usamos el paquete de recaptcha
         ];
     }
