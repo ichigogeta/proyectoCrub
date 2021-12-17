@@ -18,29 +18,20 @@
 @section('content')
 <div class="container">
     <!-- Le indicamos que vaya a la routa guardarDatos dentro del formulario el cual le indicamos con un metodo POST -->
-    
-        
-        <!-- TODOS LOS PASOS SIGUIENTES SE UTILIZAN CAMPOS OCULTOS PARA VERIFICAR INFORMACION Y PASAR INFORMACION PARA PODER BORRAR O EDITAR O EN SU CASO NULA PARA AGREGAR -->
-        @if($tipoBoton === "editarUsuario")<!-- Si del boton que pulsamos esta el campo "editarUsuario" se muestra el formulario para poder editar el usuario -->
-            <form action='{{route('mostrarListaUsuarios')}}' method="POST">
+
+
+            <form action='{{route('store.user')}}' method="POST">
                 @csrf
-                <input type="hidden" name="id" value="{{$id}}">
-                <input type="text" class="form-control" name="usuario" placeholder="Usuario" value="{{$usuario}}">
-                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" value="{{$email}}">
-                <input type="hidden" name="tipoBoton" value="editarUsuario">
-                <button type="submit" class="btn btn-success">Guardar</button>
-            <form>
-        @else<!-- Si del boton que pulsamos esta el campo "agregarUsuario" se muestra el formulario para poder agregar un nuevo usuario -->
-            <form action='{{route('mostrarListaUsuarios')}}' method="POST">
-                @csrf
-                <input type="hidden" name="id" value="{{$id}}">
-                <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
                 <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
-                <input type="hidden" name="tipoBoton" value="agregarUsuario">
+                <!-- crear contraseña
+                                Subir Avatar-->
                 <button type="submit" class="btn btn-success">Guardar</button>
+
             <form>
-        @endif       
-    </form>
+
+
     <!-- Le indicamos una routa para que vuelva a la vista de la lista de los usuarios -->
     <a href="{{route('mostrarListaUsuarios')}}" class="btn btn-primary">Volver al listado</a>
 </div>
