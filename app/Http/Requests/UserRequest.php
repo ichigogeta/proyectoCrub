@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|max:140',
+            'email' => 'required|email',
+            'password'=> 'required|min:1|confirmed',//CONFIRMAR LA CONTRASEÑA ES CONFIRMED PERO DESDE EL PASSWORD NO DESDE EL CONFIRM
+            'password_confirmation'=> 'required'//TAMBIEN SE PUEDEN USAR EXPRESIONES HACIENDO "REGEX:expresionregular".
         ];
     }
 }

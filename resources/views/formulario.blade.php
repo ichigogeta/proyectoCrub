@@ -24,7 +24,7 @@
             <input type="text" class="form-control" name="nombre" placeholder="Nombre">
             <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
             <input type="password" class="form-control" name="password" placeholder="password">
-            <input type="password" class="form-control" name="otro_nombre" placeholder="Confirmar contraseña" value="">
+            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar contraseña" value="">
             <input type="file" accept="image/*" name="archivo">
             <button type="submit" class="btn btn-success">Guardar</button>
 
@@ -34,10 +34,10 @@
         <form action='{{route('store.editarUsuario')}}' method="POST">
             @csrf
             <input type="hidden" name="id" value="{{$id}}">
-            <input type="password" class="form-control" name="password" placeholder="password" value="">
-            <input type="password" class="form-control" name="otro_nombre" placeholder="Confirmar contraseña" value="">
             <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{$nombre}}">
             <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" value="{{$email}}">
+            <input type="password" class="form-control" name="password" placeholder="password" value="">
+            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar contraseña" value="">
             <!-- Subir Avatar-->
             <button type="submit" class="btn btn-success">Guardar</button>
         <form>
