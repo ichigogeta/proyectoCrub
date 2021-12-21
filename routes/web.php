@@ -46,11 +46,11 @@ Route::post('add-usuario','UsersController@crearUsuario')->name('store.agregarUs
 ##Muestra el formulario.
 Route::get('showform','UsersController@mostrarFormulario')->name('show.form');
 ##Muestra la vista de confirmacion pasandole la id mediante un href.
-Route::get('confirmForm/{id?}','UsersController@mostrarConfirmacion')->name('show.confirmForm');
+Route::post('confirmForm/','UsersController@mostrarConfirmacion')->name('show.confirmForm');
 ##Elimina el usuario y redirige a la ruta de msotrarlistausuarios.
 Route::post('showForm','UsersController@eliminarUsuario')->name('show.form.del');
 ##Busca el usuario y lo muestra en el formulario para editarlo.
-Route::get('showform/{id?}','UsersController@mostrarEditarUsuario')->name('show.form.edit');
+Route::get('showform/{id}','UsersController@mostrarEditarUsuario')->name('show.form.edit');
 ##Edita el usuario y redirige a la ruta de mostrarlistausuarios.
 Route::post('editarUsuario','UsersController@editarUsuario')->name('store.editarUsuario');
 

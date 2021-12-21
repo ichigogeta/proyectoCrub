@@ -45,7 +45,12 @@
                                <a href="{{route('show.form.edit',$usuario->id)}}" class="btn btn-warning">Editar</a>
                             </td>
                             <td>
-                                <a href="{{route('show.confirmForm',$usuario->id)}}" class="btn btn-danger">Eliminar</a>
+                                <form action="{{route('show.confirmForm')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{$usuario->id}}">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach

@@ -5,10 +5,11 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactoRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
-    
+
     //Método para mostrar la lista de los usuarios.
     public function mostrarListaUsuarios()
     {
@@ -23,10 +24,10 @@ class UsersController extends Controller
     }
 
     //Método para mostrar la vista confirmacion pasandole como parametro la id.
-    public function mostrarConfirmacion($id)
+    public function mostrarConfirmacion(Request $request)
     {
-        $usuario = User::find($id);
-        $id = $usuario->id;
+        $usuario = User::find($request->user_id);
+        $id = $request->user_id;
         //Muestra la vista de confirmacion para eliminar, pasandole unos parametros los cuales necesitamos para borrar el usuario.
         //Compact se usa para pasar informacion a la vista del return.
         return view('confirmacionEliminar',compact('id'));
@@ -47,11 +48,12 @@ class UsersController extends Controller
 
     //Método para eliminar usuario.
     public function eliminarUsuario(Request $request){
+        //dd($request);
+        //TODO=> Controlar existencia de usuario
         $usuarios = User::find($request->id);//Encontramos el id.
         $usuarios->delete();//Borramos.
-        $usuarios = User::all();//Cargamos todos los usuarios.
         \FlashHelper::success("Usuario eliminado exitosamente!");//Avisamos al usuario.
-        return redirect()->route('mostrarListaUsuarios', compact('usuarios'));//Redirigimos a la route el cual contiene un metodo y le pasamos un parametro.
+        return redirect()->route('mostrarListaUsuarios');//Redirigimos a la route el cual contiene un metodo y le pasamos un parametro.
     }
 
     //Método para mostra los datos en el formulario.
@@ -60,11 +62,13 @@ class UsersController extends Controller
         $id = $usuario->id;
         $nombre = $usuario->name;//Igualamos para establecer el usuario y el email en sus campos.
         $email = $usuario->email;
-        return view('formulario',compact('id','nombre','email'));//Devuelve el formulario pasandole unos parametros.
+        $password = $usuario->password;
+        return view('formulario',compact('id','nombre','email','password'));//Devuelve el formulario pasandole unos parametros.
     }
 
     //Método para editar un usuario.
     public function editarUsuario(Request $request){
+        //TODO=> Controlar existencia de usuario
         $usuario = User::find($request->id);//Encontramos el id
         $usuario->name = $request->nombre;//Establecemos el nombre y email nuevos en la base de datos.
         $usuario->email = $request->email;
