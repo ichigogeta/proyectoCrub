@@ -39,15 +39,20 @@ Route::get('/locale/to/{code}/{route}', 'LanguageController@setLocaleAndRedirect
 
 
 ##Dirige a la vista plantilla de la lista.
-Route::get('listaUsuarios', 'VistasController@mostrarListaUsuarios')->name('mostrarListaUsuarios');
+Route::get('listaUsuarios', 'UsersController@mostrarListaUsuarios')->name('mostrarListaUsuarios');
 
-##Dirige a a vista del formulario.
-Route::post('add-usuario','VistasController@storeUser')->name('store.user');
-Route::get('showform','VistasController@mostrarFormulario')->name('show.form');
-
-
-##Dirige del formulario a la lista con informacion a guardar. Le indicamos POST porque en el formulario esta el post y ademas para que al redigir a la vista envie los datos por los atributos names"
-##Dirige a la vista confirmacionEliminar y crea su ruta usando el metodo mostrarConfirmacion el cual esta en el controlador VistasController
+##Crea el usuario y redirige a la ruta mostrarlistausuarios.
+Route::post('add-usuario','UsersController@crearUsuario')->name('store.agregarUsuario');
+##Muestra el formulario.
+Route::get('showform','UsersController@mostrarFormulario')->name('show.form');
+##Muestra la vista de confirmacion pasandole la id mediante un href.
+Route::get('confirmForm/{id?}','UsersController@mostrarConfirmacion')->name('show.confirmForm');
+##Elimina el usuario y redirige a la ruta de msotrarlistausuarios.
+Route::post('showForm','UsersController@eliminarUsuario')->name('show.form.del');
+##Busca el usuario y lo muestra en el formulario para editarlo.
+Route::get('showform/{id?}','UsersController@mostrarEditarUsuario')->name('show.form.edit');
+##Edita el usuario y redirige a la ruta de mostrarlistausuarios.
+Route::post('editarUsuario','UsersController@editarUsuario')->name('store.editarUsuario');
 
 ## Perfil del usuario
 /*

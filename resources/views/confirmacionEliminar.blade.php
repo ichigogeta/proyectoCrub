@@ -18,11 +18,9 @@
 @section('content')
 <div class="container">
     <h1>¿Realmente quiere eliminar este usuario?</h1>
-    <form action='{{route('mostrarListaUsuarios')}}' method="POST"><!-- Indicamos al usuario si quiere eliminar o no el usuario escogido. Se usara campos ocultos para poder pasar los datos a borrar -->
+    <form action='{{route('show.form.del')}}' method="POST"><!-- Indicamos al usuario si quiere eliminar o no el usuario escogido. Se usara campos ocultos para poder pasar los datos a borrar -->
         @csrf
         <input type="hidden" name="id" value="{{$id}}">
-        <input type="hidden" name="usuario" value="{{$usuario}}">
-        <input type="hidden" name="email" value="{{$email}}">
         <button type="submit" class="btn btn-warning">Si</button>
     <form>
     <a href="{{route('mostrarListaUsuarios')}}" class="btn btn-primary">No</a>

@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    <a href="{{route('mostrarListaUsuarios')}}" class="btn btn-primary">IR A MOSTRAR LISTA USUARIOS</a>
                 </div>
             </div>
         </div>

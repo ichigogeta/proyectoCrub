@@ -25,8 +25,9 @@ class ContactoRequest extends FormRequest
     {
         // https://laravel.com/docs/5.7/validation#available-validation-rules
         return [
-            'usuario' => 'required|max:140',
+            'nombre' => 'required|max:140',
             'email' => 'required|email',
+            'password'=> 'required|min:6'
             //'cuerpo' => 'required',
             //'condiciones' => 'accepted',
             //'g-recaptcha-response' => 'required|captcha', //si usamos el paquete de recaptcha

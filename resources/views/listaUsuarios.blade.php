@@ -16,7 +16,6 @@
 @endsection
 <!-- Seccion para el contenido que vayamos a desarrollar. Digamos que es el cuerpo de la web. -->
 @section('content')
-    {{'listando usuarios'}}
     <div class="container">
         <div class="botonAgregar">
             <!-- Le agregamos una ruta para que redirija a esa vista (Las rutas son para redireccionar.-->
@@ -43,13 +42,10 @@
                             <td>{{$usuario->email}}</td>
                             <td>{{$usuario->avatar}}</td>
                             <td>
-                                <form action="#ruta_editar" method="POST" >
-                                    <input type="hidden"  value="">
-                                    <input type="submit" class="btn btn-warning" value="Editar">
-                                </form>
+                               <a href="{{route('show.form.edit',$usuario->id)}}" class="btn btn-warning">Editar</a>
                             </td>
                             <td>
-                                <a href="#ruta_eliminar" class="btn btn-danger">Eliminar</a>
+                                <a href="{{route('show.confirmForm',$usuario->id)}}" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
                     @endforeach

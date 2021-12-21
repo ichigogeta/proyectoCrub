@@ -18,19 +18,28 @@
 @section('content')
 <div class="container">
     <!-- Le indicamos que vaya a la routa guardarDatos dentro del formulario el cual le indicamos con un metodo POST -->
+    @if(empty($id))
+        <form action='{{route('store.agregarUsuario')}}' method="POST">
+            @csrf
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+            <input type="password" class="form-control" name="password" placeholder="password">
+            <input type="file" name="archivo" multiple>
+            <button type="submit" class="btn btn-success">Guardar</button>
 
+        <form>
+    @else
+    
+        <form action='{{route('store.editarUsuario')}}' method="POST">
+            @csrf
+            <input type="hidden" name="id" value="{{$id}}">
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{$nombre}}">
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" value="{{$email}}">
+            <!-- Subir Avatar-->
+            <button type="submit" class="btn btn-success">Guardar</button>
 
-            <form action='{{route('store.user')}}' method="POST">
-                @csrf
-
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
-                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
-                <!-- crear contraseña
-                                Subir Avatar-->
-                <button type="submit" class="btn btn-success">Guardar</button>
-
-            <form>
-
+        <form>
+    @endif
 
     <!-- Le indicamos una routa para que vuelva a la vista de la lista de los usuarios -->
     <a href="{{route('mostrarListaUsuarios')}}" class="btn btn-primary">Volver al listado</a>
