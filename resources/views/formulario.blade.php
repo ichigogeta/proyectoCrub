@@ -19,7 +19,7 @@
 <div class="container">
     <!-- Le indicamos que vaya a la routa guardarDatos dentro del formulario el cual le indicamos con un metodo POST -->
     @if(empty($id))
-        <form action=' {{route('store.agregarUsuario')}}' method="POST">
+        <form action=' {{route('store.agregarUsuario')}}' method="POST" enctype="multipart/form-data">
             @csrf
             <input type="text" class="form-control" name="nombre" placeholder="Nombre">
             <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Post;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class UsersController extends Controller
 {
@@ -39,21 +42,18 @@ class UsersController extends Controller
 
         $rutaNuevaImagen = null;
         //dd(asset('avatars/'.$request->archivo));
-        if(!empty($request->archivo)){
-            $rutaNuevaImagen = asset('avatars/'.$request->archivo);
-            Storage::copy('C:/Users/Ichigogeta/Desktop483Dialga.png',$rutaNuevaImagen);
-            //NO ENTIENDO COMO COPIAR LA IMAGEN A LA NUEVA RUTA.
-
-            //Intentos...:
-            //$file = $request->file('archivo');
-            //$file->move(base_path('\avatars'),$request->archivo);
+        if($request->hasFile('archivo')){
+            $imagen = $request->file('archivo');
+            $path = $request->archivo->storeAs('avatars', $imagen->getClientOriginalName());
+            //Storage::putFileAs('avatars', new File($imagen), $imagen->getClientOriginalName());
+            Storage::disk('public')->putFileAs('avatars/',new File($imagen),$imagen->getClientOriginalName());//IMAGEN QUE USA LA RUTA DE /CONFIG/FILESYSTEM
 
         }
         User::create([//Creamos el usuario.
             'name' => $request->nombre,
             'email' => $request->email,
             'password'=> Hash::make($request['password']),
-            'avatar'=> $rutaNuevaImagen
+            'avatar'=> $path
         ]);
         
         \FlashHelper::success("Usuario guardado exitosamente!");//Traemos de la clase FlashHelper creada en App\Helpers el metodo "success" y le indicamos una frase para que la muestre como confirmación.
