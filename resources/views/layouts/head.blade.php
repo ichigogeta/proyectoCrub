@@ -38,6 +38,7 @@
     {{-- NUESTROS ESTILOS Y SCRIPTS --}}
     @yield('late_head')
     <link href="{{url(mix('css/app.css')) }}" rel="stylesheet"> {{-- mix() es lo mismo que asset() pero si usas SASS --}}
+    <link href="{{url('css/estilo.css')}}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/validacion.js')}}"></script>
 </head>

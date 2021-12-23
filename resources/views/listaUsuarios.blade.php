@@ -35,12 +35,15 @@
                 </thead>
                 <tbody>
                     <!-- Creamos un foreach y le pasamos la variable que sacamos del compact a esta vista "baseDatos" y la usamos como item -->
+                    @php
+                        $contador = 0;
+                    @endphp
                     @foreach ($usuarios as $usuario)
                         <tr>
                             <th scope="row">{{$usuario->id}}</th>
                             <td>{{$usuario->name}}</td>
                             <td>{{$usuario->email}}</td>
-                            <td>{{$usuario->avatar}}</td>
+                            <td><img class="img-responsive" id="avatar" src="{{$usuario->avatar}}" alt="imagen {{$contador}}"></td>
                             <td>
                                <a href="{{route('show.form.edit',$usuario->id)}}" class="btn btn-warning">Editar</a>
                             </td>
@@ -53,6 +56,9 @@
 
                             </td>
                         </tr>
+                        @php
+                            $contador++;
+                        @endphp
                     @endforeach
                 </tbody>
               </table>

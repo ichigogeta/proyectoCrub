@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+/*
 // Body
 $body-bg: #f5f8fa;
 
@@ -38,43 +40,43 @@ $input-color-placeholder: lighten($text-color, 30%);
 $panel-default-heading-bg: #fff;
 */
 
+
 /*-------------------------------------------------- */
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  /*height: $footer-heigh;*/
-  background-color: #f5f5f5;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    /*height: $footer-heigh;*/
+    background-color: #f5f5f5;
 }
 
 .footer .container {
-  padding-top: 4px;
+    padding-top: 4px;
 }
 
 #container {
-  padding-bottom: 1.4em;
+    padding-bottom: 1.4em;
 }
 
 .alert {
-  margin-left: 1rem;
-  margin-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 @media all and (min-width: 480px) {
-  br.phone {
-    display: none;
-  }
+    br.phone {
+        display: none;
+    }
 }
-
